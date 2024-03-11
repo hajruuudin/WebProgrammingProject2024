@@ -1,0 +1,38 @@
+#LOGINIMAGE{
+    background: url(../img/logInCard.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#REGISTERIMAGE{
+    background: url(https://images.unsplash.com/photo-1544772546-4357b9384b60?q=80&w=654&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-size: cover;
+}
+
+#FORGOTPASSWORDIMAGE{
+    background: url(https://images.unsplash.com/photo-1697714721604-2ed0b7b779eb?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-size: cover;
+}
+
+.loginCustomBackground{
+    background: url(../img/loginBackground.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.registerCustomBackground{
+    background: url(../img/registerBackground.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.forgotpassCustomBackground{
+    background: url(../img/forgotPassBackground.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

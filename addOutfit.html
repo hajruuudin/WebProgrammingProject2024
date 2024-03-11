@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MyStlist - Add Outfit</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    
+    <!-- Custom Font for all of the Body: Kubhm Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Custom font for the header icon and banner: Kalam-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addThing.css">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion navbarColor" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-bottom justify-content-bottom" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15 mx-1">
+                    <i class="fas fa-hat-cowboy"></i>
+                </div>
+                <div class="sidebar-brand-text"><span id="headerNavbar">MyStylist</span></div>
+            </a>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="index.html">
+                    <span id="navItem">My Rundown</span></a>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="wardrobe.html">
+                    <span id="navItem">My Wardrobe</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="styles.html">
+                    <span id="navItem">My Outfits</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="stats.html">
+                    <span id="navItem">My Statistics</span></a>
+            </li>
+
+            
+            <br>
+
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="addItem.html">
+                    <span id="navItem">Add Clothes</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link navCategories" href="#">
+                    <span id="navItem">Add Outfit</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="#">
+                    <span id="navItem">Log Outfit (WIP)</span></a>
+            </li>
+
+            
+
+
+            <br>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link navCategories" href="about.html">
+                    <span id="navItem">About</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light topbar static-top navbarColor pt-4" id="topbar">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars" id="sidebarButton"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle mt-5"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"aria-labelledby="userDropdown">
+                            
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2">Hajrudin Imamovic</span>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="row pt-4">
+                        <div class="col-12">
+                            <div class="card shadow">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-dark">Add Outfit</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <!-- Image -->
+                                        <div class="col-xl-6 d-xl-inline d-none">
+                                            <img src="img/jeansStyle.webp" alt="" height="600px" id="addThingImage" class="m-3">
+                                        </div>
+                                        <!-- Form -->
+                                        <div class="col-xl-6 col-12">
+                                            <h1 class="h1 text-gray-800 font-weight-bold">Add Outfit:</h1>
+                                            <form action="#">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="outfitNameInput">Outfit Name</label>
+                                                            <input type="text" class="form-control" id="outfitNameInput" placeholder="Jeans fit...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="outfitDescriptionInput">Outfit description</label>
+                                                            <input type="text" class="form-control" id="outfitDescriptionInput" placeholder="Favourite jeans outfit...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="selectOutfitStyle">Select Style</label>
+                                                                <select class="form-control" id="selectOutfitStyle">
+                                                                    <option>Casual</option>
+                                                                    <option>Formal</option>
+                                                                    <option>Sportswear</option>
+                                                                    <option>Teachwear</option>
+                                                                    <option>Old-Money</option>
+                                                                    <option>Minimal</option>
+                                                                    <option>Modern Fashion</option>
+                                                                    <option>Elegant</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="selectOutfitSeason1">Select PrimarySeason</label>
+                                                                <select class="form-control" id="selectItemSeason1">
+                                                                    <option>Spring</option>
+                                                                    <option>Summer</option>
+                                                                    <option>Fall</option>
+                                                                    <option>Winter</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="selectItemRating">Personal Rating</label>
+                                                                <select class="form-control" id="selectItemRating">
+                                                                    <option>&#9733;</option>
+                                                                    <option>&#9733;&#9733;</option>
+                                                                    <option>&#9733;&#9733;&#9733;</option>
+                                                                    <option>&#9733;&#9733;&#9733;&#9733;</option>
+                                                                    <option>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="selectItemSeason2">Select Secondary Season</label>
+                                                                <select class="form-control" id="selectItemSeason2">
+                                                                    <option>Spring</option>
+                                                                    <option>Summer</option>
+                                                                    <option>Fall</option>
+                                                                    <option>Winter</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="selectItemRating">Add clothes:</label>
+                                                                <select class="form-control" id="selectItemRating">
+                                                                    <option>Empty</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="imageUpload">Image: (optional)</label>
+                                                            <input type="file" class="form-control-file" id="fileUpload">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    <button type="submit" class="btn btn-primary my-1">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer" id="footer">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; MyStylist</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
