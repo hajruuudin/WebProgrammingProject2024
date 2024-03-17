@@ -1,0 +1,273 @@
+body{
+    font-family: "Kumbh Sans", Arial, Helvetica, sans-serif;
+    background-color: #E1F4FF;
+    animation: fadeInAnimation ease 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+a{
+    color: #555555;
+}
+
+#wrapper{
+    margin: 0px;
+}
+
+@media (min-width: 1000px){
+    #wrapper{
+        margin: 0px 40px;
+    }
+}
+
+#content{
+    background-color: #E1F4FF;
+}
+
+
+.navbarColor{
+    background-color: #E1F4FF;
+
+}
+
+.fas, #headerNavbar{
+    color: #555555;
+}
+    
+#navItem{
+    color: #777777;
+    font-size: 0.7em;
+}
+
+@media (min-width: 500px) {
+    .sidebar .nav-item .nav-link .navCategories{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 800px) {
+    #navItem{
+        color: #777777;
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 1000px) {
+    #navItem{
+        color: #777777;
+        font-size: 1.4em;
+    }
+}
+
+
+#headerNavbar{
+    font-family: "Kalam", Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+    text-transform: none;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-item{
+    height: 40px;
+}
+
+.fas{
+    color: #777777;
+}
+
+.fas, .fa-hat-cowboy{
+    color: #555555;
+}
+
+.nav-link{
+    margin: 0px 10px;
+}
+
+#sidebarButton{
+    color: #555555;
+}
+
+#navItem:hover{
+    font-weight: 550;
+    transition: 0.1s ease;
+}
+
+.navbarDivider{
+    border-top: 2px solid #777777;
+    align-self: center;
+    width: 100px;
+    margin: 0px 0px;
+}
+
+/**** Main Content *****/
+
+#contentWrapper{
+    background-color: #E1F4FF;
+}
+
+#topbar{
+    margin-bottom: 0em;
+}
+
+#userHeading{
+    font-size: 4em;
+    font-weight: 600;
+
+}
+
+@media screen and (max-width: 1070px){
+    #userHeading{
+        font-size: 2em;
+        font-weight: 600;
+    
+    }
+}
+
+.topbar .nav-item .nav-link { /* moving the icon up */
+    height: 2.5rem;
+}
+
+
+/* LOG IN SITES */ 
+
+
+/* FOOTER */
+
+#footer{
+    background-color: #E1F4FF;
+}
+
+/* ITEM CARDS */ 
+.itemImage{
+    width: 175px;
+    height: 200px;
+    border-radius: 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
+    transition: 0.2s ease-in-out;
+}
+
+.itemCardSelect:hover .itemImage{
+    filter: brightness(40%);
+    filter: grayscale(100%);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 100%);
+}
+
+.itemName{
+    font-weight: 700;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    color: #555555;
+    text-align: center;
+}
+
+.itemCategory{
+    margin-top: 2px;
+    margin-bottom: 0px;
+    padding: 3px 15px;
+    background-color: aquamarine;
+    border-radius: 8%;
+    font-weight: 500;
+    color: black;
+}
+
+.itemWearCount span{
+    font-weight: 600;
+}
+
+.itemCardSelect:hover{
+    text-decoration: none;
+    color: #777777;
+}
+
+.itemCardSelect:hover .itemCategory{
+    background-color: rgb(43, 43, 43);
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.itemCardSelect:hover .itemName{
+    color: black;
+}
+
+/* STYLE CARDS */
+.styleImage{
+    width: 175px;
+    height: 220px;
+    border-radius: 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
+    transition: 0.2s ease-in-out;
+}
+
+.styleCardSelect:hover{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.styleCardSelect:hover .styleImage{
+    filter: brightness(40%);
+    filter: sepia(50%);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 50%);
+}
+
+.styleName{
+    font-weight: 700;
+    padding-top: 10px;
+    margin-bottom: -5px;
+    color: #555555;
+    text-align: center;
+}
+
+.styleCategory{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 3px 15px;
+    border-radius: 8%;
+    font-weight: 500;
+    color: black;
+}
+
+.styleSeason{
+    margin-top: -5px;
+}
+
+.styleRating{
+    color: gold;
+    margin-top: -15px;
+}
+
+/* MAIN PAGE */
+.myStyles{
+    width: 180px;
+    height: 220px;
+    margin: 0px 10px;
+}
+
+.myStyles:hover{
+    filter: brightness(40%);
+}
+
+.myItem{
+    width: 100px;
+    height: 100px;
+    margin: 8px 10px;
+}
+
+.myItem:hover{
+    filter: brightness(40%);
+}
+
+.input-group{
+    padding-top: 40px;
+}
