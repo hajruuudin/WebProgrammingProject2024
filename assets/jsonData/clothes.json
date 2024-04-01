@@ -1,0 +1,146 @@
+[
+    {
+        "itemID" : 1,
+        "itemName" : "Black T-Shirt",
+        "itemBrand" : "LC Waikiki",
+        "itemCategory" : "T-Shirt",
+        "itemSeasonPrim" : "Summer",
+        "itemSeasonSec" : "Spring",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Plain old black t shirt that I have had for about 3 years.",
+        "itemImage" : "assets/img/blackTShirt.jpeg"
+    }
+    ,{
+        "itemID" : 2,
+        "itemName" : "Classy White Shirt",
+        "itemBrand" : "Tudors",
+        "itemCategory" : "Shirt",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My favourite white T-Shirt",
+        "itemImage" : "assets/img/whiteSilk.jpeg"
+    }
+    ,{
+        "itemID" : 3,
+        "itemName" : "Mclaren Hoodie",
+        "itemBrand" : "Mclaren F1 store",
+        "itemCategory" : "Jackets",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My mclaren hoodie that is very expensive",
+        "itemImage" : "assets/img/mclaren.webp"
+    }
+    ,{
+        "itemID" : 4,
+        "itemName" : "SWY Intensly",
+        "itemBrand" : "Arman",
+        "itemCategory" : "Fragnance",
+        "itemSeasonPrim" : "Winter",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Best ever winter fragnance",
+        "itemImage" : "assets/img/swy.jpeg"
+    }
+    ,{
+        "itemID" : 5,
+        "itemName" : "Black T-Shirt",
+        "itemBrand" : "LC Waikiki",
+        "itemCategory" : "T-Shirt",
+        "itemSeasonPrim" : "Summer",
+        "itemSeasonSec" : "Spring",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Plain old black t shirt that I have had for about 3 years.",
+        "itemImage" : "assets/img/blackTShirt.jpeg"
+    }
+    ,{
+        "itemID" : 6,
+        "itemName" : "Classy White Shirt",
+        "itemBrand" : "Tudors",
+        "itemCategory" : "Shirt",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My favourite white T-Shirt",
+        "itemImage" : "assets/img/whiteSilk.jpeg"
+    }
+    ,{
+        "itemID" : 7,
+        "itemName" : "Mclaren Hoodie",
+        "itemBrand" : "Mclaren F1 store",
+        "itemCategory" : "Jackets",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My mclaren hoodie that is very expensive",
+        "itemImage" : "assets/img/mclaren.webp"
+    }
+    ,{
+        "itemID" : 8,
+        "itemName" : "SWY Intensly",
+        "itemBrand" : "Arman",
+        "itemCategory" : "Fragnance",
+        "itemSeasonPrim" : "Winter",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Best ever winter fragnance",
+        "itemImage" : "assets/img/swy.jpeg"
+    }
+    ,{
+        "itemID" : 9,
+        "itemName" : "Black T-Shirt",
+        "itemBrand" : "LC Waikiki",
+        "itemCategory" : "T-Shirt",
+        "itemSeasonPrim" : "Summer",
+        "itemSeasonSec" : "Spring",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Plain old black t shirt that I have had for about 3 years.",
+        "itemImage" : "assets/img/blackTShirt.jpeg"
+    }
+    ,{
+        "itemID" : 10,
+        "itemName" : "Classy White Shirt",
+        "itemBrand" : "Tudors",
+        "itemCategory" : "Shirt",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My favourite white T-Shirt",
+        "itemImage" : "assets/img/whiteSilk.jpeg"
+    }
+    ,{
+        "itemID" : 11,
+        "itemName" : "Mclaren Hoodie",
+        "itemBrand" : "Mclaren F1 store",
+        "itemCategory" : "Jackets",
+        "itemSeasonPrim" : "Spring",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "My mclaren hoodie that is very expensive",
+        "itemImage" : "assets/img/mclaren.webp"
+    }
+    ,{
+        "itemID" : 12,
+        "itemName" : "SWY Intensly",
+        "itemBrand" : "Arman",
+        "itemCategory" : "Fragnance",
+        "itemSeasonPrim" : "Winter",
+        "itemSeasonSec" : "Fall",
+        "itemDate" : "24.03.2024",
+        "itemWearCount" : 12,
+        "itemDescription" : "Best ever winter fragnance",
+        "itemImage" : "assets/img/swy.jpeg"
+    }
+]
