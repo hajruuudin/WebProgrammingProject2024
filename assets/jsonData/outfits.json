@@ -1,0 +1,35 @@
+[
+    {
+        "outfitID" : 1,
+        "outfitName" : "Dark Suit",
+        "outfitCategory" : "Formal",
+        "outfitSeasonPrim" : "Winter",
+        "outfitSeasonSec" : "Fall",
+        "outfitRating" : "&#9733; &#9733; &#9733; &#9733;",
+        "outfitDescription" : "Random Ahh Dark Suit",
+        "outfitDate" : "21.03.2024",
+        "outfitImage" : "assets/img/suitGuy.webp"
+    }
+    ,{
+        "outfitID" : 2,
+        "outfitName" : "Casual Texas",
+        "outfitCategory" : "Casual",
+        "outfitSeasonPrim" : "Spring",
+        "outfitSeasonSec" : "Summer",
+        "outfitRating" : "&#9733; &#9733; &#9733;",
+        "outfitDescription" : "Random Ahh Texas Casual",
+        "outfitDate" : "21.03.2024",
+        "outfitImage" : "assets/img/jeansStyle.webp"
+    }
+    ,{
+        "outfitID" : 3,
+        "outfitName" : "Winter Casual",
+        "outfitCategory" : "Casual",
+        "outfitSeasonPrim" : "Winter",
+        "outfitSeasonSec" : "Fall",
+        "outfitRating" : "&#9733;",
+        "outfitDescription" : "Random Ahh Winter Fit",
+        "outfitDate" : "21.03.2024",
+        "outfitImage" : "assets/img/winterCozy.jpeg"
+    }
+]

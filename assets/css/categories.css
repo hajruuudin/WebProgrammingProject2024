@@ -1,0 +1,40 @@
+.T-Shirt{
+    background-color: rgb(233, 202, 146);
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Jeans{
+    background-color: rgb(175, 206, 236);
+}
+
+.Shirt{
+    background-color: rgb(190, 146, 206);
+}
+
+.Fragnance{
+    background-color: rgb(243, 120, 120);
+}
+
+.Hoodie{
+    background-color: rgb(176, 98, 2);
+}
+
+.Suit{
+    background-color: mediumaquamarine;
+}
+
+.Accesorie{
+    background-color: beige;
+}
+
+/* STYLES */
+.Casual{
+    color: rgb(205, 113, 0);
+    font-weight: 800;
+}
+
+.Formal{
+    color: rgb(86, 86, 231);
+    font-weight: 800;
+}

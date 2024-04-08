@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,10 +10,9 @@
 
     <title>MyStylist</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    
+    <!-- Custom icon fonts for this template -->
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     <!-- Custom Font for all of the Body: Kubhm Sans-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,15 +21,21 @@
     <!-- Custom font for the header icon and banner: Kalam-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
-        
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Kumbh+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/calendars/calendar-1/assets/css/calendar-1.css">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Custom styles: SPAPP - BOOTSTRAP - CUSTOM STYLES -->
+    <link rel="stylesheet" href="assets/css/spapp.css">
+    <link rel="stylesheet" href="assets/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="assets/css/mainStyle.css">
+    <link rel="stylesheet" href="assets/css/categories.css">
+
+
 
 </head>
 
@@ -40,83 +44,136 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion navbarColor" id="accordionSidebar">
+        <!-- Sidebar - DISPLAYED ON LARGER SCREENS -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion d-md-block d-none" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-bottom justify-content-bottom" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15 mx-1">
-                    <i class="fas fa-hat-cowboy"></i>
-                </div>
-                <div class="sidebar-brand-text"><span id="headerNavbar">MyStylist</span></div>
-            </a>
+            <!-- Sidebar - Brand - EMPTY IN ORDER TO LEAVE SPACE -->
+            <a class="sidebar-brand d-flex align-items-bottom justify-content-bottom" href="index.html"></a>
 
-            <li class="nav-item active ">
-                <a class="nav-link navCategories" href="index.html">
-                    <span id="navItem">My Rundown</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="#rundown"><span id="navItem">My Rundown</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="wardrobe.html">
-                    <span id="navItem">My Wardrobe</span>
-                </a>
+                <a class="nav-link" href="#wardrobe" onclick="getClothes()" id="clothesButton"><span id="navItem">MyWardrobe</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="styles.html">
-                    <span id="navItem">My Outfits</span>
-                </a>
+                <a class="nav-link" href="#outfits" onclick="getOutfits()"><span id="navItem">My Outfits</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="stats.html">
-                    <span id="navItem">My Statistics</span></a>
+                <a class="nav-link" href="#stats"><span id="navItem">My Statistics</span></a>
             </li>
 
             <br>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="addItem.html">
-                    <span id="navItem">Add Clothes</span></a>
+                <a class="nav-link" data-toggle="modal" data-target="#addClothesModal"><span id="navItem">Add
+                        Clothes</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="addOutfit.html">
-                    <span id="navItem">Add Outfit</span></a>
+                <a class="nav-link" data-toggle="modal" data-target="#addOutfitModal"><span id="navItem">Add
+                        Outfit</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="#">
-                    <span id="navItem">Log Outfit (WIP)</span></a>
+                <a class="nav-link" href="#"><span id="navItem">Log Outfit (WIP)</span></a>
             </li>
 
             <br>
 
             <li class="nav-item">
-                <a class="nav-link navCategories" href="about.html">
-                    <span id="navItem">About</span></a>
+                <a class="nav-link" href="#about"><span id="navItem">About</span></a>
             </li>
-
         </ul>
+
+        <!-- Offcanvas sidebar - MOBILE & TABLE ONLY -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNav"
+            aria-labelledby="offcanvasNavLabel">
+
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavLabel">
+                    <span id="headerNavbar"><i class="fas fa-hat-cowboy rotate-n-15"></i>MyStylist</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <ul class="navbar-nav sidebar sidebar-dark" id="accordionSidebar">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rundown"><span id="navItem" data-bs-dismiss="offcanvas">My Rundown</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wardrobe" onclick="getClothes()" id="clothesButton"><span
+                                id="navItem" data-bs-dismiss="offcanvas">My Wardrobe</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#outfits" onclick="getOutfits()"><span id="navItem" data-bs-dismiss="offcanvas">My
+                                Outfits</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stats" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">My Statistics</span></a>
+                    </li>
+
+                    <br>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#addClothesModal" data-bs-dismiss="offcanvas"><span id="navItem">Add
+                                Clothes</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" data-target="#addOutfitModal" data-bs-dismiss="offcanvas"><span id="navItem">Add
+                                Outfit</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span id="navItem" data-bs-dismiss="offcanvas">Log Outfit (WIP)</span></a>
+                    </li>
+
+                    <br>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">About</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column pt-3">
 
             <!-- Main Content -->
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light topbar static-top navbarColor pt-4" id="topbar">
+                <nav class="navbar navbar-expand navbar-light topbar static-top fixed-top navbarColor pt-4 pb-3" id="topbar">
+                    <a class="navbar-brand" href="#">
+                        <div class="navbar-brand mb-0 h1"><span id="headerNavbar"><i class="fas fa-hat-cowboy rotate-n-15"></i>MyStylist</span>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <!-- Offcanvas Toggle -->
+                    <button class="btn d-md-none pb-2" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNav" aria-controls="offcanvasExample">
                         <i class="fa fa-bars" id="sidebarButton"></i>
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
+                    <form class="d-none d-sm-inline-block form-inline navbar-search">
+                        <div class="input-group pt-0 pb-2">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -136,171 +193,41 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </li>
-
-
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle mt-5"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"aria-labelledby="userDropdown">
-                            
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2">Hajrudin Imamovic</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2">Hajrudin
+                                        Imamovic</span>
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid pt-4" id="contentWrapper">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-gray-800" id="userHeading">Welcome, hajruuudin!</h1>
-                    </div>
-                    
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row ">
-                                    <h6 class="m-0 font-weight-bold text-dark">My Styles</h6>
-                                    <div class="dropdown no-arrow">
-                                    </div>
-                                </div>
-
-                                <!-- My Styles -->
-                                <div class="card-body align-items-center">
-                                    <a href="styles.html">
-                                        <img src="img/jeansStyle.webp" class="styleImage myStyles" alt="">
-                                    </a>
-                                    <a href="styles.html">
-                                        <img src="img/suitGuy.webp" class="styleImage myStyles" alt="">
-                                    </a>
-                                    <a href="styles.html">
-                                        <img src="img/winterCozy.jpeg" class="styleImage myStyles" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-dark">My Clothes</h6>
-                                </div>
-                                <!-- My Clothes -->
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a href="wardrobe.html">
-                                                <img src="img/blackTShirt.jpeg" class="itemImage myItem" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="wardrobe.html">
-                                                <img src="img/whiteSilk.jpeg" class="itemImage myItem" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a href="wardrobe.html">
-                                                <img src="img/swy.jpeg" class="itemImage myItem" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href="wardrobe.html">
-                                                <img src="img/redBull.jpeg" class="itemImage myItem" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-dark">Weather</h6>
-                                </div>
-                                <!-- Weather -->
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <h6 class="flex-grow-1">Sarajevo</h6>
-                                        <h6>15:07</h6>
-                                      </div>
-                          
-                                      <div class="d-flex flex-column text-center mt-5 mb-4">
-                                        <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> 13°C </h6>
-                                        <span class="small" style="color: #868B94">Stormy</span>
-                                      </div>
-                          
-                                      <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1" style="font-size: 1rem;">
-                                          <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 40 km/h
-                                            </span></div>
-                                          <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 84% </span>
-                                          </div>
-                                          <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 0.2h </span>
-                                          </div>
-                                        </div>
-                                        <div>
-                                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
-                                            width="100px">
-                                        </div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Calendar -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-dark">Calendar</h6>
-                                </div>
-                                <div class="card-body p-3">
-                                    <div id="bsb-calendar-1" class="fc fc-media-screen fc-direction-ltr fc-theme-bootstrap5 bsb-calendar-theme"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="container-fluid pt-5" id="contentWrapper">
+                    <main id="spapp" role="main">
+                        <section id="rundown" data-load="rundown.html"></section>
+                        <section id="wardrobe" data-load="wardrobe.html"></section>
+                        <section id="outfits" data-load="outfits.html"></section>
+                        <section id="stats" data-load="stats.html"></section>
+                        <section id="about" data-load="about.html"></section>
+                        <section id="itemDescription" data-load="itemDescription.html"></section>
+                        <section id="outfitDescription" data-load="outfitDescription.html"></section>
+                    </main>
                 </div>
             </div>
             <!-- End of Main Content -->
@@ -321,10 +248,278 @@
     </div>
     <!-- End of Page Wrapper -->
 
+
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Add Item Of Clothing Modal -->
+    <div class="modal fade bd-example-modal-lg" id="addClothesModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add To Wardrobe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 p-3">
+                            <!-- Actual Card -->
+                            <div class="row align-items-center">
+                                <!-- Form -->
+                                <div class="col-12">
+                                    <h1 class="h1 mb-2 text-gray-800 p-2 font-weight-bold">Add Item to wardrobe:</h1>
+                                    <form method="post" id="addClothesForm">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="itemNameInput">Item Name</label>
+                                                    <input type="text" class="form-control" id="itemNameInput"
+                                                        placeholder="Black T-Shirt" name="itemName">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="itemBrandInput">Item Brand</label>
+                                                    <input type="text" class="form-control" id="itemBrandInput"
+                                                        placeholder="Pull & Bear..." name="itemBrand">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="itemDescriptionInput">Item description</label>
+                                                    <input type="text" class="form-control" id="itemDescriptionInput"
+                                                        placeholder="Black T-Shirt that i got from somewhere..."
+                                                        name="itemDescription">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemCategory">Select Category</label>
+                                                    <select class="form-control" id="selectItemCategory"
+                                                        name="itemCategory">
+                                                        <option value="T-Shirt">T-Shirts</option>
+                                                        <option value="Shirt">Shirts</option>
+                                                        <option value="Jacket">Jackets</option>
+                                                        <option value="Coat">Coats</option>
+                                                        <option value="Jeans">Jeans</option>
+                                                        <option value="Shorts">Shorts</option>
+                                                        <option value="Sportswear">Sportswear</option>
+                                                        <option value="Shoes">Shoes</option>
+                                                        <option value="Fragnance">Fragnance</option>
+                                                        <option value="Underclothes">Underclothes</option>
+                                                        <option value="Accesorie">Accesories</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="itemSizeInput">Item Size:</label>
+                                                    <input type="text" class="form-control" id="itemSizeInput"
+                                                        placeholder="Example: 42" name="itemSize">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemSeason">Select Primary Season</label>
+                                                    <select class="form-control" id="selectItemSeason"
+                                                        name="itemSeasonPrim">
+                                                        <option value="Spring">Spring</option>
+                                                        <option value="Summer">Summer</option>
+                                                        <option value="Fall">Fall</option>
+                                                        <option value="Winter">Winter</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemSeason">Select Secondary Season</label>
+                                                    <select class="form-control" id="selectItemSeason"
+                                                        name="itemSeasonSec">
+                                                        <option value="Spring">Spring</option>
+                                                        <option value="Summer">Summer</option>
+                                                        <option value="Fall">Fall</option>
+                                                        <option value="Winter">Winter</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemRating">Personal Rating</label>
+                                                    <select class="form-control" id="selectItemRating"
+                                                        name="itemRating">
+                                                        <option value="&#9733;">&#9733;</option>
+                                                        <option value="&#9733;&#9733;">&#9733;&#9733;</option>
+                                                        <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
+                                                        </option>
+                                                        <option value="&#9733;&#9733;&#9733;&#9733;">
+                                                            &#9733;&#9733;&#9733;&#9733;</option>
+                                                        <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">
+                                                            &#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="imageUpload">Image: (optional)</label>
+                                                    <input type="file" class="form-control-file" id="imageUpload"
+                                                        name="itemImage">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary my-1">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Add Clothes Modal-->
+
+    <!-- Add Outfit Modal -->
+    <div class="modal fade bd-example-modal-lg" id="addOutfitModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add To Outfits</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 p-3">
+                            <!-- Actual Card -->
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <h1 class="h1 text-gray-800 font-weight-bold">Add Outfit:</h1>
+                                    <form method="post" id="addOutfitsForm">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="outfitNameInput">Outfit Name</label>
+                                                    <input type="text" class="form-control" id="outfitNameInput"
+                                                        placeholder="Jeans fit..." name="outfitName">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="outfitDescriptionInput">Outfit description</label>
+                                                    <input type="text" class="form-control" id="outfitDescriptionInput"
+                                                        placeholder="Favourite jeans outfit..."
+                                                        name="outfitDescription">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectOutfitCategory">Select Category</label>
+                                                    <select class="form-control" id="selectOutfitCategory"
+                                                        name="outfitCategory">
+                                                        <option value="Casual">Casual</option>
+                                                        <option value="Formal">Formal</option>
+                                                        <option value="Sportwear">Sportswear</option>
+                                                        <option value="Techwear">Teachwear</option>
+                                                        <option value="Old-Money">Old-Money</option>
+                                                        <option value="Minimal">Minimal</option>
+                                                        <option value="Modern Fashion">Modern Fashion</option>
+                                                        <option value="Elegant">Elegant</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectOutfitSeason1">Select PrimarySeason</label>
+                                                    <select class="form-control" id="selectItemSeason1"
+                                                        name="outfitSeasonPrim">
+                                                        <option value="Spring">Spring</option>
+                                                        <option value="Sumer">Summer</option>
+                                                        <option value="Fall">Fall</option>
+                                                        <option value="Winter">Winter</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemRating">Personal Rating</label>
+                                                    <select class="form-control" id="selectItemRating"
+                                                        name="outiftRating">
+                                                        <option value="&#9733;">&#9733;</option>
+                                                        <option value="&#9733;&#9733;">&#9733;&#9733;</option>
+                                                        <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
+                                                        </option>
+                                                        <option value="&#9733;&#9733;&#9733;&#9733;">
+                                                            &#9733;&#9733;&#9733;&#9733;</option>
+                                                        <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">
+                                                            &#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="selectItemSeason2">Select Secondary Season</label>
+                                                    <select class="form-control" id="selectItemSeason2"
+                                                        name="outfitSeasonSec">
+                                                        <option value="Spring">Spring</option>
+                                                        <option value="Sumer">Summer</option>
+                                                        <option value="Fall">Fall</option>
+                                                        <option value="Winter">Winter</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="imageUpload">Image: (optional)</label>
+                                                    <input type="file" class="form-control-file" id="fileUpload">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary my-1">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Add Outfit Modal -->
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -340,32 +535,31 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="pages/login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Teplate Necessary Scripts: BOOTSTRAP - JQUERY - BOOSTRAP FOR OFFCANVAS - TEMPLATE -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- SPAPP Script and setup -->
+    <script src="assets/js/jquery.spapp.js"></script>
+    <script src="assets/js/jquery.spapp.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.9/index.global.min.js"></script>
-    <script src="https://unpkg.com/bs-brain@2.0.3/components/calendars/calendar-1/assets/controller/calendar-1.js"></script>
+    <!-- My Scripts for the Data -->
+    <script src="utils/frontend.js"></script>
+    <script src="utils/datarequest.js"></script>
+    <script src="utils/forms.js"></script>
 
 </body>
 
