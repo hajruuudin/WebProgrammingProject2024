@@ -1,6 +1,6 @@
 # WebProgrammingProject2024
 
-Title: MyStylist
+Title: *MyStylist*
 
 **Description:** An app where the user is able to put everything they have of clothes, shoes, accesories and others in one "Virtual wardrobe". Some functionaliteis include:
 - Adding items of clothing based on their categories, preference, seasons in which they can be worn...
@@ -24,3 +24,31 @@ Title: MyStylist
 - Created PR
 
 Notes: Code is a bit rough since the template I was working with did not suit me so I had to change 90% of the code. Some files were also left (javascript) since I didn't  want to remove a vital function of the template by accident.
+
+
+# 02. 04. 2024: Second Milestone
+- Spapp implemented on the webpage, with base at Index.html
+- Log in and Register are not part of spapp as they are different pages completely
+- The rest is fully implemented in spapp
+- AJAX requests to a temporary JSON api, this was later changed to the database
+- There were 2 requests made: One for the wardrobe and one for the outfits
+- Both also generate the page description for the outfit or the item of clothing
+- Responsiveness of the application was improved
+- Navbar switches to an offcanvas element at lower screen size
+- There is a bug which makes the navbar dissapear when at really low screen sizes but it hapens rarely, I can't explain it
+- The Rundown, Stats and About pages are left really blank as I have decided to do them in the later milestones
+- Form validation was implemented using jQuerys validate plugin
+
+Notes: I had bugs with spapp which forced me to use timeouts when generating the descriptions of the items or outfits, but other than that the rest should be fine
+
+# 23. 04. 2024: Third Milestone
+- Whole Frontedn project is now changes
+- Assets - Keeps all the css, js and vendor template necessery files
+- Services - The javascript methods made specifically to manipulate the entities in the webpage
+- Utils - Repeating functions such as spapp, block UI
+- Backend - The whole backend structure for Wardrobe and Outfits:
+    - For both clothes and outfits, you can retreive the data from the database, update the data, add new data or delete records from the database. All done using PDO library for PHP.
+- Also used Toaster library for cool effects!
+- The database consists of 6 tables and 3 entities!
+
+Notes: For the database i had to create some dummy tables which honestly serve no purpose but they fit well in the system. The user entity was not tackled in this milestone since I left it for the later milestones when we will be making the actual LogIn. Also, same goes for Stats, Log Outfit and Rundown, since those will implement specially functionalities. For this mileston, I just did what was necessary to show the connection to the database!!!

@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Kumbh Sans';
+    src: url('assets/fonts/kubhm-sans') format('ttf'),
+         url('path/to/font-file.woff') format('woff');   
+    font-weight: 100; /* specify font weight if applicable */
+    font-style: normal; /* specify font style if applicable */
+}
+
 #LOGINIMAGE{
     background: url(../img/logInCard.jpg);
     background-position: center;
