@@ -32,6 +32,8 @@
     <!-- Custom styles: SPAPP - BOOTSTRAP - CUSTOM STYLES -->
     <link rel="stylesheet" href="assets/css/spapp.css">
     <link rel="stylesheet" href="assets/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="assets/css/toastify.min.css">
+    <link rel="stylesheet" href="assets/css/datatables.min.css">
     <link rel="stylesheet" href="assets/css/mainStyle.css">
     <link rel="stylesheet" href="assets/css/categories.css">
 
@@ -55,11 +57,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#wardrobe" onclick="getClothes()" id="clothesButton"><span id="navItem">MyWardrobe</span></a>
+                <a class="nav-link" href="#wardrobe" onclick="ItemsService.get_items()"><span id="navItem">MyWardrobe</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#outfits" onclick="getOutfits()"><span id="navItem">My Outfits</span></a>
+                <a class="nav-link" href="#outfits"><span id="navItem">My Outfits</span></a>
             </li>
 
             <li class="nav-item">
@@ -108,12 +110,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#wardrobe" onclick="getClothes()" id="clothesButton"><span
+                        <a class="nav-link" href="#wardrobe">
+                            <span
                                 id="navItem" data-bs-dismiss="offcanvas">My Wardrobe</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#outfits" onclick="getOutfits()"><span id="navItem" data-bs-dismiss="offcanvas">My
+                        <a class="nav-link" href="#outfits"><span id="navItem" data-bs-dismiss="offcanvas">My
                                 Outfits</span></a>
                     </li>
 
@@ -155,7 +158,7 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light topbar static-top fixed-top navbarColor pt-4 pb-3" id="topbar">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="#rundown">
                         <div class="navbar-brand mb-0 h1"><span id="headerNavbar"><i class="fas fa-hat-cowboy rotate-n-15"></i>MyStylist</span>
                         </div>
                     </a>
@@ -261,7 +264,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add To Wardrobe</h5>
+                    <h1 class="h1 mb-2 pl-3 text-gray-800 pt-2 font-weight-bold">Add Item to wardrobe:</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -273,21 +276,20 @@
                             <div class="row align-items-center">
                                 <!-- Form -->
                                 <div class="col-12">
-                                    <h1 class="h1 mb-2 text-gray-800 p-2 font-weight-bold">Add Item to wardrobe:</h1>
-                                    <form method="post" id="addClothesForm">
+                                    <form method="post" id="addClothesForm" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="itemNameInput">Item Name</label>
                                                     <input type="text" class="form-control" id="itemNameInput"
-                                                        placeholder="Black T-Shirt" name="itemName">
+                                                        placeholder="Black T-Shirt" name="name">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="itemBrandInput">Item Brand</label>
                                                     <input type="text" class="form-control" id="itemBrandInput"
-                                                        placeholder="Pull & Bear..." name="itemBrand">
+                                                        placeholder="Pull & Bear..." name="brand">
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +300,7 @@
                                                     <label for="itemDescriptionInput">Item description</label>
                                                     <input type="text" class="form-control" id="itemDescriptionInput"
                                                         placeholder="Black T-Shirt that i got from somewhere..."
-                                                        name="itemDescription">
+                                                        name="description">
                                                 </div>
                                             </div>
                                         </div>
@@ -308,19 +310,19 @@
                                                 <div class="form-group">
                                                     <label for="selectItemCategory">Select Category</label>
                                                     <select class="form-control" id="selectItemCategory"
-                                                        name="itemCategory">
-                                                        <option value="T-Shirt">T-Shirts</option>
-                                                        <option value="Shirt">Shirts</option>
-                                                        <option value="Jacket">Jackets</option>
-                                                        <option value="Coat">Coats</option>
-                                                        <option value="Jeans">Jeans</option>
-                                                        <option value="Shorts">Shorts</option>
-                                                        <option value="Sportswear">Sportswear</option>
-                                                        <option value="Shoes">Shoes</option>
-                                                        <option value="Fragnance">Fragnance</option>
-                                                        <option value="Underclothes">Underclothes</option>
-                                                        <option value="Accesorie">Accesories</option>
-                                                        <option value="Other">Other</option>
+                                                        name="item_categoryID">
+                                                        <option value="1">T-Shirts</option>
+                                                        <option value="2">Shirts</option>
+                                                        <option value="3">Jackets</option>
+                                                        <option value="4">Coats</option>
+                                                        <option value="5">Jeans</option>
+                                                        <option value="6">Shorts</option>
+                                                        <option value="7">Sportswear</option>
+                                                        <option value="8">Footwear</option>
+                                                        <option value="9">Fragnance</option>
+                                                        <option value="10">Underclothes</option>
+                                                        <option value="11">Accesories</option>
+                                                        <option value="12">Other</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -328,7 +330,7 @@
                                                 <div class="form-group">
                                                     <label for="itemSizeInput">Item Size:</label>
                                                     <input type="text" class="form-control" id="itemSizeInput"
-                                                        placeholder="Example: 42" name="itemSize">
+                                                        placeholder="Example: 42" name="size">
                                                 </div>
                                             </div>
                                         </div>
@@ -336,26 +338,25 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="selectItemSeason">Select Primary Season</label>
+                                                    <label for="selectItemSeason">Weather Ocassion:</label>
                                                     <select class="form-control" id="selectItemSeason"
-                                                        name="itemSeasonPrim">
-                                                        <option value="Spring">Spring</option>
-                                                        <option value="Summer">Summer</option>
-                                                        <option value="Fall">Fall</option>
-                                                        <option value="Winter">Winter</option>
+                                                        name="weatherID">
+                                                        <option value="1">Pleasant Summer</option>
+                                                        <option value="2">Humid & Hot</option>
+                                                        <option value="3">Cold & Windy</option>
+                                                        <option value="4">Rain & Storm</option>
+                                                        <option value="5">Cold Winter</option>
+                                                        <option value="6">Autumn Days</option>
+                                                        <option value="7">Summer Night</option>
+                                                        <option value="8">All Rounder</option>
+                                                        <option value="9">Other / Unspecified</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="selectItemSeason">Select Secondary Season</label>
-                                                    <select class="form-control" id="selectItemSeason"
-                                                        name="itemSeasonSec">
-                                                        <option value="Spring">Spring</option>
-                                                        <option value="Summer">Summer</option>
-                                                        <option value="Fall">Fall</option>
-                                                        <option value="Winter">Winter</option>
-                                                    </select>
+                                                    <label for="selectDateAdded">Date Added</label>
+                                                    <input type="date" class="form-control" name="date_added" id="selectDateAdded">
                                                 </div>
                                             </div>
                                         </div>
@@ -365,7 +366,7 @@
                                                 <div class="form-group">
                                                     <label for="selectItemRating">Personal Rating</label>
                                                     <select class="form-control" id="selectItemRating"
-                                                        name="itemRating">
+                                                        name="rating">
                                                         <option value="&#9733;">&#9733;</option>
                                                         <option value="&#9733;&#9733;">&#9733;&#9733;</option>
                                                         <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
@@ -379,9 +380,9 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="imageUpload">Image: (optional)</label>
-                                                    <input type="file" class="form-control-file" id="imageUpload"
-                                                        name="itemImage">
+                                                    <label for="imageUpload">Image:</label>
+                                                    <input type="file" class="form-control" id="imageUpload"
+                                                        name="image">
                                                 </div>
                                             </div>
                                         </div>
@@ -393,7 +394,11 @@
                     </div>
 
                 </div>
+                <div class="modal-footer">
+                    <p><em>Images will be scaled down to 3 : 4 Aspect Ratio!</em></p>
+                </div>
             </div>
+           
         </div>
     </div>
     <!-- End Add Clothes Modal-->
@@ -404,7 +409,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add To Outfits</h5>
+                    <h1 class="h1 text-gray-800 font-weight-bold pl-3 pt-2">Add Outfit to wardrobe:</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -415,14 +420,13 @@
                             <!-- Actual Card -->
                             <div class="row align-items-center">
                                 <div class="col-12">
-                                    <h1 class="h1 text-gray-800 font-weight-bold">Add Outfit:</h1>
-                                    <form method="post" id="addOutfitsForm">
+                                    <form method="post" id="addOutfitsForm" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="outfitNameInput">Outfit Name</label>
                                                     <input type="text" class="form-control" id="outfitNameInput"
-                                                        placeholder="Jeans fit..." name="outfitName">
+                                                        placeholder="Jeans fit..." name="name">
                                                 </div>
                                             </div>
                                         </div>
@@ -430,10 +434,10 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <label for="outfitDescriptionInput">Outfit description</label>
+                                                    <label for="outfitDescriptionInput">Personal notes for outfit:</label>
                                                     <input type="text" class="form-control" id="outfitDescriptionInput"
                                                         placeholder="Favourite jeans outfit..."
-                                                        name="outfitDescription">
+                                                        name="description">
                                                 </div>
                                             </div>
                                         </div>
@@ -443,28 +447,33 @@
                                                 <div class="form-group">
                                                     <label for="selectOutfitCategory">Select Category</label>
                                                     <select class="form-control" id="selectOutfitCategory"
-                                                        name="outfitCategory">
-                                                        <option value="Casual">Casual</option>
-                                                        <option value="Formal">Formal</option>
-                                                        <option value="Sportwear">Sportswear</option>
-                                                        <option value="Techwear">Teachwear</option>
-                                                        <option value="Old-Money">Old-Money</option>
-                                                        <option value="Minimal">Minimal</option>
-                                                        <option value="Modern Fashion">Modern Fashion</option>
-                                                        <option value="Elegant">Elegant</option>
-                                                        <option value="Other">Other</option>
+                                                        name="outfit_categoryID">
+                                                        <option value="1">Casual</option>
+                                                        <option value="2">Formal</option>
+                                                        <option value="3">Sportswear</option>
+                                                        <option value="4">Teachwear</option>
+                                                        <option value="5">Old-Money</option>
+                                                        <option value="6">Minimal</option>
+                                                        <option value="7">Modern Fashion</option>
+                                                        <option value="8">Elegant</option>
+                                                        <option value="9">Other</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="selectOutfitSeason1">Select PrimarySeason</label>
-                                                    <select class="form-control" id="selectItemSeason1"
-                                                        name="outfitSeasonPrim">
-                                                        <option value="Spring">Spring</option>
-                                                        <option value="Sumer">Summer</option>
-                                                        <option value="Fall">Fall</option>
-                                                        <option value="Winter">Winter</option>
+                                                    <select class="form-control" id="selectOutfitSeason"
+                                                        name="weatherID">
+                                                        <option value="1">Pleasant Summer</option>
+                                                        <option value="2">Humid & Hot</option>
+                                                        <option value="3">Cold & Windy</option>
+                                                        <option value="4">Rain & Storm</option>
+                                                        <option value="5">Cold Winter</option>
+                                                        <option value="6">Autumn Days</option>
+                                                        <option value="7">Summer Night</option>
+                                                        <option value="8">All Rounder</option>
+                                                        <option value="9">Other / Unspecified</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -473,9 +482,9 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="selectItemRating">Personal Rating</label>
-                                                    <select class="form-control" id="selectItemRating"
-                                                        name="outiftRating">
+                                                    <label for="selectOutfitRating">Personal Rating</label>
+                                                    <select class="form-control" id="selectOutfitRating"
+                                                        name="rating">
                                                         <option value="&#9733;">&#9733;</option>
                                                         <option value="&#9733;&#9733;">&#9733;&#9733;</option>
                                                         <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
@@ -489,14 +498,8 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="selectItemSeason2">Select Secondary Season</label>
-                                                    <select class="form-control" id="selectItemSeason2"
-                                                        name="outfitSeasonSec">
-                                                        <option value="Spring">Spring</option>
-                                                        <option value="Sumer">Summer</option>
-                                                        <option value="Fall">Fall</option>
-                                                        <option value="Winter">Winter</option>
-                                                    </select>
+                                                    <label for="selectDateAdded">Date Added</label>
+                                                    <input type="date" class="form-control" name="date_added" id="selectDateAdded">
                                                 </div>
                                             </div>
                                         </div>
@@ -504,8 +507,8 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="imageUpload">Image: (optional)</label>
-                                                    <input type="file" class="form-control-file" id="fileUpload">
+                                                    <label for="imageUpload">Image:</label>
+                                                    <input type="file" class="form-control" id="imageUpload" name="image">
                                                 </div>
                                             </div>
                                         </div>
@@ -515,6 +518,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <p><em>Images will be scaled down to 3 : 4 Aspect Ratio!</em></p>
                 </div>
             </div>
         </div>
@@ -542,25 +548,161 @@
     </div>
 
     <!-- Teplate Necessary Scripts: BOOTSTRAP - JQUERY - BOOSTRAP FOR OFFCANVAS - TEMPLATE -->
+
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/sb-admin-2.min.js"></script>
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/jquery.blockUI.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-    <!-- SPAPP Script and setup -->
     <script src="assets/js/jquery.spapp.js"></script>
     <script src="assets/js/jquery.spapp.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    
 
     <!-- My Scripts for the Data -->
-    <script src="utils/frontend.js"></script>
-    <script src="utils/datarequest.js"></script>
-    <script src="utils/forms.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="utils/constants.js"></script>
+    <script src="utils/utils.js"></script>
+    <script src="services/items.js"></script>
+    <script src="services/outfits.js"></script>
+    <script src="utils/form-validation.js"></script>
+    <script src="utils/rest-client.js"></script>
+    <script src="assets/js/toastify.js"></script>
+    <script>
+        // Init the SPAPP:
+        Utils.init_spapp();
 
+        // Validating the form for clothes submission:
+        FormValidation.validateForm(
+            $("#addClothesForm"),
+            {
+                name: {
+                    required : true,
+                    minlength : 4
+                },
+                brand: {
+                    required : true
+                },
+                description: {
+                    required: true,
+                },
+                size: {
+                    required: true,
+                },
+                image: {
+                    required: true,
+                    filetype: ["jpeg", "jpg", "png"],
+                }
+            },
+            {
+                name: {
+                    required: "Please enter this field!",
+                    minlength: "Item name must be at least 3 letter long!"
+                },
+                brand: {
+                    required: "Item must have a brand/creator/sellee!"
+                },
+                image: {
+                    required: "Please insert an image (It is a clothes app after all!)",
+                    
+                    filetype: "Image must be JPEG, JPG, PNG",
+                    aspectratio: "Please take your image in 3:4 due to the website constraints!"
+                }
+            },
+            function ()
+            {
+                Utils.blockUi("#addClothesModal");
+
+                var formData = new FormData($("#addClothesForm")[0]);
+                console.log(formData);
+            
+                RestClient.post("/backend/add_clothes.php", formData, function(response){
+                    Utils.unblockUi("#addClothesModal");
+                    console.log(response);
+                    Toastify({
+                        text: "Data sent! Horray",
+                        style: {
+                            backgroundColor: "red"
+                        },
+                        duration: 1000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "center",
+                    }).showToast();
+                    $("#addClothesForm")[0].reset();
+                    if(window.location.href == "#wardrobe"){
+                        ItemsService.get_items(); 
+                    };
+                }, function(error){
+                    Toastify({
+                        text: "Something went horribly wrong!",
+                        style: {
+                            backgroundColor: "red"
+                        },
+                        duration: 1000
+                    }).showToast();
+                }
+            )
+
+                
+            }
+        )
+
+        // Validating the form for outfit submission:
+        FormValidation.validateForm(
+            $("#addOutfitsForm"),
+            {
+                name: {
+                    required: true,
+                    minlength : 5
+                },
+                image: {
+                    required: true,
+                    filetype: ["jpeg", "jpg", "png"],
+                }
+            },
+            {
+                name: {
+                    required: "Outfit name is required",
+                    minlength : "Outfit name must be atleast 5 characters long!"
+                },
+                image: {
+                    required: "Please insert an image (It is a clothes app after all!)",
+                    filetype: "Image must be JPEG, JPG, PNG",
+                }
+            },
+            function (data){
+                Utils.blockUi("#addOutfitModal");
+
+                var formData = new FormData($("#addOutfitsForm")[0]);
+                console.log(formData);
+            
+                RestClient.post("/backend/add_outfits.php", formData, function(response){
+                    Utils.unblockUi("#addOutfitModal");
+                    console.log(response);
+                    Toastify({
+                        text: "Data sent! Horray",
+                        style: {
+                            backgroundColor: "red"
+                        },
+                        duration: 1000
+                    }).showToast();
+                    $("#addOutfitsForm")[0].reset();
+                    }, function(error){
+                        Toastify({
+                            text: "Something went horribly wrong!",
+                            style: {
+                                backgroundColor: "red"
+                            },
+                            duration: 1000
+                        }).showToast();
+                    }
+                )
+            }
+        )
+    </script>
 </body>
 
 </html>

@@ -10,3 +10,197 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="deleteItemModal" tabindex="-1" role="dialog" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+    <!-- Item modal body -->
+</div>
+
+<!-- Edit Item of clothing modal -->
+<div class="modal fade bd-example-modal-lg" id="editClothesModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="h1 mb-2 pl-3 text-gray-800 pt-2 font-weight-bold">Edit item:</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 p-3">
+                    <!-- Actual Card -->
+                    <div class="row align-items-center">
+                        <!-- Form -->
+                        <div class="col-12">
+                            <form method="post" id="editClothesForm" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="hidden" name="id" id="id">
+                                        <div class="form-group">
+                                            <label for="itemNameInput">Item Name</label>
+                                            <input type="text" class="form-control" id="itemNameInput"
+                                                placeholder="Black T-Shirt" name="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="itemBrandInput">Item Brand</label>
+                                            <input type="text" class="form-control" id="itemBrandInput"
+                                                placeholder="Pull & Bear..." name="brand">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="itemDescriptionInput">Item description</label>
+                                            <input type="text" class="form-control" id="itemDescriptionInput"
+                                                placeholder="Black T-Shirt that i got from somewhere..."
+                                                name="description">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectItemCategory">Category</label>
+                                            <select class="form-control" id="selectItemCategory"
+                                                name="item_categoryID">
+                                                <option value="1">T-Shirts</option>
+                                                <option value="2">Shirts</option>
+                                                <option value="3">Jackets</option>
+                                                <option value="4">Coats</option>
+                                                <option value="5">Jeans</option>
+                                                <option value="6">Shorts</option>
+                                                <option value="7">Sportswear</option>
+                                                <option value="8">Footwear</option>
+                                                <option value="9">Fragnance</option>
+                                                <option value="10">Underclothes</option>
+                                                <option value="11">Accesories</option>
+                                                <option value="12">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="itemSizeInput">Size</label>
+                                            <input type="text" class="form-control" id="itemSizeInput"
+                                                placeholder="Example: 42" name="size">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectItemSeason">Weather Ocassion</label>
+                                            <select class="form-control" id="selectItemSeason"
+                                                name="weatherID">
+                                                <option value="1">Pleasant Summer</option>
+                                                <option value="2">Humid & Hot</option>
+                                                <option value="3">Cold & Windy</option>
+                                                <option value="4">Rain & Storm</option>
+                                                <option value="5">Cold Winter</option>
+                                                <option value="6">Autumn Days</option>
+                                                <option value="7">Summer Night</option>
+                                                <option value="8">All Rounder</option>
+                                                <option value="9">Other / Unspecified</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectDateAdded">Date Added</label>
+                                            <input type="date" class="form-control" name="date_added" id="selectDateAdded">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectItemRating">Personal Rating</label>
+                                            <select class="form-control" id="selectItemRating"
+                                                name="rating">
+                                                <option value="&#9733;">&#9733;</option>
+                                                <option value="&#9733;&#9733;">&#9733;&#9733;</option>
+                                                <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
+                                                </option>
+                                                <option value="&#9733;&#9733;&#9733;&#9733;">
+                                                    &#9733;&#9733;&#9733;&#9733;</option>
+                                                <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">
+                                                    &#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="imageUpload">Image:</label>
+                                            <input type="file" class="form-control" id="imageUpload"
+                                                name="image">
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <button type="submit" class="btn btn-primary my-1">Submit Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <p><em>Images cannot be edited! Work in progress...</em></p>
+        </div>
+    </div>
+   
+</div>
+</div>
+<!-- End Add Clothes Modal-->
+
+<script>
+    FormValidation.validateForm(
+        $("#editClothesForm"),
+        {},
+        {},
+        function (){
+            // Utils.blockUi("#editClothesModal"); TODO: Fix this
+            
+            var formData = new FormData($("#editClothesForm")[0]);
+
+            RestClient.post(
+                "/backend/edit_item.php", 
+                formData, 
+                function(response){
+                    // Utils.unblockUi("#addClothesModal"); TODO: Fix this
+                    console.log(response);
+                    Toastify({
+                        text: "Data edited",
+                        style: {
+                            background: "linear-gradient(to right, #FFA500, #A52A2A)",
+                            },
+                        duration: 1000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "center",
+                    }).showToast();
+                    $("#editClothesModal").modal("toggle");
+                    if(window.location.href == "#itemDescription"){
+                        window.location.href = "#wardrobe";
+                        ItemsService.get_items(); 
+                    };
+                })
+            }, 
+        function(error){
+            Toastify({
+                text: "Something went horribly wrong!",
+                style: {
+                    backgroundColor: "red"
+                    },
+                duration: 1000
+            }).showToast();
+        }
+    );
+</script>

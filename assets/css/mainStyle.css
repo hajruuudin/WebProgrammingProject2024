@@ -1,10 +1,11 @@
 body{
-    font-family: "Kumbh Sans", Arial, Helvetica, sans-serif;
+    font-family: Kumbh Sans, Arial, Helvetica, sans-serif;
     background-color: #E1F4FF;
     animation: fadeInAnimation ease 0.4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
 
 @keyframes fadeInAnimation {
     0% {
@@ -91,7 +92,7 @@ a{
 
 
 #headerNavbar{
-    font-family: "Kalam", Arial, Helvetica, sans-serif;
+    font-family: Kalam, Arial, Helvetica, sans-serif;
     font-size: 1.8em;
     text-transform: none;
     font-weight: 700;
@@ -168,7 +169,7 @@ a{
 /* ITEM CARDS */ 
 .itemImage{
     width: 175px;
-    height: 200px;
+    aspect-ratio: 3/4;
     border-radius: 5%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
     transition: 0.2s ease-in-out;
@@ -300,5 +301,6 @@ a{
     #addThingImage{
         width: 320px;
         height: 400px;
+        aspect-ratio: 3/4;
     }
 }

@@ -10,3 +10,176 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="deleteOutfitModal" tabindex="-1" role="dialog" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+    <!-- Outfit modal body -->
+</div>
+
+<!-- Add Outfit Modal -->
+<div class="modal fade bd-example-modal-lg" id="editOutfitModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="h1 text-gray-800 font-weight-bold pl-3 pt-2">Edit Outfit</h1>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 p-3">
+                    <!-- Actual Card -->
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <form method="post" id="editOutfitsForm" enctype="multipart/form-data">
+                                <div class="row">
+                                    <input type="hidden" name="id" id="id">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="outfitNameInput">Outfit Name</label>
+                                            <input type="text" class="form-control" id="outfitNameInput"
+                                                placeholder="Jeans fit..." name="name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="outfitDescriptionInput">Personal notes for outfit:</label>
+                                            <input type="text" class="form-control" id="outfitDescriptionInput"
+                                                placeholder="Favourite jeans outfit..."
+                                                name="description">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectOutfitCategory">Select Category</label>
+                                            <select class="form-control" id="selectOutfitCategory"
+                                                name="outfit_categoryID">
+                                                <option value="1">Casual</option>
+                                                <option value="2">Formal</option>
+                                                <option value="3">Sportswear</option>
+                                                <option value="4">Teachwear</option>
+                                                <option value="5">Old-Money</option>
+                                                <option value="6">Minimal</option>
+                                                <option value="7">Modern Fashion</option>
+                                                <option value="8">Elegant</option>
+                                                <option value="9">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectOutfitSeason1">Select PrimarySeason</label>
+                                            <select class="form-control" id="selectOutfitSeason"
+                                                name="weatherID">
+                                                <option value="1">Pleasant Summer</option>
+                                                <option value="2">Humid & Hot</option>
+                                                <option value="3">Cold & Windy</option>
+                                                <option value="4">Rain & Storm</option>
+                                                <option value="5">Cold Winter</option>
+                                                <option value="6">Autumn Days</option>
+                                                <option value="7">Summer Night</option>
+                                                <option value="8">All Rounder</option>
+                                                <option value="9">Other / Unspecified</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectOutfitRating">Personal Rating</label>
+                                            <select class="form-control" id="selectOutfitRating"
+                                                name="rating">
+                                                <option value="&#9733;">&#9733;</option>
+                                                <option value="&#9733;&#9733;">&#9733;&#9733;</option>
+                                                <option value="&#9733;&#9733;&#9733;">&#9733;&#9733;&#9733;
+                                                </option>
+                                                <option value="&#9733;&#9733;&#9733;&#9733;">
+                                                    &#9733;&#9733;&#9733;&#9733;</option>
+                                                <option value="&#9733;&#9733;&#9733;&#9733;&#9733;">
+                                                    &#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="selectDateAdded">Date Added</label>
+                                            <input type="date" class="form-control" name="date_added" id="selectDateAdded">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="imageUpload">Image:</label>
+                                            <input type="file" class="form-control" id="imageUpload" name="image">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <button type="submit" class="btn btn-primary my-1">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p><em>Images will be scaled down to 3 : 4 Aspect Ratio!</em></p>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Add Outfit Modal -->
+
+<script>
+    FormValidation.validateForm(
+        $("#editOutfitsForm"),
+        {},
+        {},
+        function (){
+            // Utils.blockUi("#editClothesModal"); TODO: Fix this
+            
+            var formData = new FormData($("#editOutfitsForm")[0]);
+
+            RestClient.post(
+                "/backend/edit_outfit.php", 
+                formData, 
+                function(response){
+                    // Utils.unblockUi("#addClothesModal"); TODO: Fix this
+                    console.log(response);
+                    Toastify({
+                        text: "Outfit edited",
+                        style: {
+                            background: "linear-gradient(to right, #FFA500, #A52A2A)",
+                            },
+                        duration: 1000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "center",
+                    }).showToast();
+                    $("#editOutfitModal").modal("toggle");
+                    if(window.location.href == "#outfitDescription"){
+                        window.location.href = "#outfits";
+                        OutfitsService.get_items(); 
+                    };
+                })
+            }, 
+        function(error){
+            Toastify({
+                text: "Something went horribly wrong!",
+                style: {
+                    backgroundColor: "red"
+                    },
+                duration: 1000
+            }).showToast();
+        }
+    );
+</script>

@@ -8,7 +8,7 @@
     background-color: rgb(175, 206, 236);
 }
 
-.Shirt{
+.Shirts{
     background-color: rgb(190, 146, 206);
 }
 
@@ -26,6 +26,10 @@
 
 .Accesorie{
     background-color: beige;
+}
+
+.Shorts{
+    background-color: blueviolet;
 }
 
 /* STYLES */
