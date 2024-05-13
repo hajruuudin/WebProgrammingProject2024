@@ -13,8 +13,8 @@ class OutfitsService{
         return $this -> outfits_dao -> add_outfit($outfit);
     }
 
-    public function get_outfits(){
-        return $this -> outfits_dao -> get_outfits();
+    public function get_outfits($userId){
+        return $this -> outfits_dao -> get_outfits($userId);
     }
 
     public function delete_outfit($outfit_id){

@@ -12,7 +12,7 @@
     <title>MyStylist - Register</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -30,12 +30,11 @@
 
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/loginPages.css">
 
 </head>
 
-<body class="registerCustomBackground">
+<body id="registerBody" class="registerCustomBackground">
 
     <div class="container">
 
@@ -49,41 +48,41 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4" id="headerNavbar">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" id="registerForm" method="post"> 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
+                                        <input type="text" class="form-control form-control-user" id="username" name="username"
+                                            placeholder="Username">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
+                                        <input type="text" class="form-control form-control-user" id="fullname" name="fullname"
+                                            placeholder="Full Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="email" name="email"
                                         placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="password" name="password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            id="repeat_password" name="repeat_password" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
-                                </a>
+                                </button>
+                                <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </a> -->
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="../login/index.html">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
@@ -94,14 +93,94 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../assets/js/sb-admin-2.min.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../utils/constants.js"></script>
+    <script src="../utils/utils.js"></script>
+    
+    <script src="../utils/rest-client.js"></script>
+    <script src="../assets/js/toastify.js"></script>
+
+    <script src="../utils/form-validation.js"></script>
+    <script src="../assets/js/jquery.blockUI.js"></script>
+
+    <script>
+        // Validating and submitting input from the register form:
+        FormValidation.validateForm(
+            $("#registerForm"),
+            {
+                username: {
+                    required: true,
+                    maxlength: 20
+                },
+                fullname: {
+                    required: true,
+                },
+                email: {
+                    required: true
+                },
+                password: {
+                    required: true,
+                    maxlength: 20
+                },
+                repeat_password: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            {
+                username: {
+                    required: "Username is Required!",
+                    maxlength: "Username cannot be bigger than 20 characters!"
+                },
+                fullname: {
+                    required: "Full Name is required!"
+                },
+                email: {
+                    required: "Email is required!"
+                },
+                password: {
+                    required: "Password is required!",
+                    maxlength: "Password cannot be longer than 20 characters!"
+                },
+                repeat_password: {
+                    required: "Repeat Password is required!",
+                    equalTo: "Passwords must match!"
+                }
+            },function(){
+                Utils.blockUi("html");
+
+                var formData = new FormData($("#registerForm")[0]);
+                console.log(formData);
+
+                RestClient.post("backend/users/add", formData, function(response){
+                    Utils.unblockUi("html");
+                    console.log(response);
+                    Toastify({
+                        text: "You have sucessfully been registered!",
+                        style: {
+                            backgroundColor: "green"
+                        },
+                        duration: 2000,
+                        gravity: "bottom", // `top` or `bottom`
+                        position: "center",
+                    }).showToast();
+                    $("#registerForm")[0].reset();
+                    setTimeout(function(){
+                        window.location.href = "../login/index.html"
+                    }, 300)
+                    
+                })
+
+            }
+        )
+    </script>
 
 </body>
 

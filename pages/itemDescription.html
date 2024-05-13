@@ -167,40 +167,24 @@ aria-hidden="true">
         {},
         {},
         function (){
-            // Utils.blockUi("#editClothesModal"); TODO: Fix this
             
             var formData = new FormData($("#editClothesForm")[0]);
 
             RestClient.post(
-                "/backend/edit_item.php", 
+                "backend/items/edit", 
                 formData, 
                 function(response){
-                    // Utils.unblockUi("#addClothesModal"); TODO: Fix this
                     console.log(response);
-                    Toastify({
-                        text: "Data edited",
-                        style: {
-                            background: "linear-gradient(to right, #FFA500, #A52A2A)",
-                            },
-                        duration: 1000,
-                        gravity: "bottom", // `top` or `bottom`
-                        position: "center",
-                    }).showToast();
+                    Toasts.sucess_c("Item has been edited!")
                     $("#editClothesModal").modal("toggle");
-                    if(window.location.href == "#itemDescription"){
-                        window.location.href = "#wardrobe";
+                    if(window.location == "#itemDescription"){
+                        window.location = "#wardrobe";
                         ItemsService.get_items(); 
                     };
                 })
             }, 
         function(error){
-            Toastify({
-                text: "Something went horribly wrong!",
-                style: {
-                    backgroundColor: "red"
-                    },
-                duration: 1000
-            }).showToast();
+            Toasts.fail_b("Something went wrong!")
         }
     );
 </script>

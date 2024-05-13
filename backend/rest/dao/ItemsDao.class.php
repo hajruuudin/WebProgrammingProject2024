@@ -11,12 +11,14 @@ class ItemsDao extends BaseDao {
         return $this -> insert("clothes", $item);
     }
     
-    public function get_items() {
+    public function get_items($userId) {
         $query = "SELECT c.*, w.name AS weatherName, ic.name AS categoryName
                 FROM clothes c
                 JOIN weather w ON c.weatherID = w.id
-                JOIN itemsCategories ic ON c.item_categoryID = ic.id";
-        return $this -> query($query);
+                JOIN itemsCategories ic ON c.item_categoryID = ic.id
+                WHERE c.userID = :userID
+                ORDER BY c.wear_count DESC";
+        return $this -> query($query, ["userID" => $userId]);
     }
 
     public function delete_item($item_id){
@@ -58,5 +60,12 @@ class ItemsDao extends BaseDao {
             "rating" => $item['rating']
         ]);
     
+    }
+
+    public function log_item($itemId){
+        $query = "UPDATE clothes 
+                  SET wear_count = wear_count + 1
+                  WHERE id = :id";
+        $this -> execute($query, ["id" => $itemId]);
     }
 }

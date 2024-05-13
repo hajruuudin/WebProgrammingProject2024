@@ -13,8 +13,8 @@ class ItemsService {
         return $this -> items_dao -> add_item($item);
     }
 
-    public function get_items(){
-        return $this -> items_dao -> get_items();
+    public function get_items($userId){
+        return $this -> items_dao -> get_items($userId);
     }
 
     public function delete_item($item_id){
@@ -30,5 +30,9 @@ class ItemsService {
         unset($item['id']);
 
         $this -> items_dao -> edit_item($id, $item);
+    }
+
+    public function log_item($itemId){
+        $this -> items_dao -> log_item($itemId);
     }
 }
