@@ -1,44 +1,167 @@
 .T-Shirt{
-    background-color: rgb(233, 202, 146);
+    background-color: #90C3E6; /* Light Blue */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Shirt{
+    background-color: #6EC9D8; /* Cyan */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Jackets{
+    background-color: #FFA657; /* Orange */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Coats{
+    background-color: #D1D1D1; /* Light Gray */
     padding: 5px;
     border-radius: 5%;
 }
 
 .Jeans{
-    background-color: rgb(175, 206, 236);
-}
-
-.Shirts{
-    background-color: rgb(190, 146, 206);
-}
-
-.Fragnance{
-    background-color: rgb(243, 120, 120);
-}
-
-.Hoodie{
-    background-color: rgb(176, 98, 2);
-}
-
-.Suit{
-    background-color: mediumaquamarine;
-}
-
-.Accesorie{
-    background-color: beige;
+    background-color: #5489B5; /* Dark Blue */
+    padding: 5px;
+    border-radius: 5%;
 }
 
 .Shorts{
-    background-color: blueviolet;
+    background-color: #5BC8B8; /* Teal */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Sportswear{
+    background-color: #e8a16e; /* Light Orange */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Footwear{
+    background-color: #E6E6E6; /* Light Gray */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Fragrance{
+    background-color: #7BA9D8; /* Sky Blue */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Underclothes{
+    background-color: #4FA4A9; /* Sea Green */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Accessories{
+    background-color: #FF884D; /* Peach */
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.Others{
+    background-color: #B0B0B0; /* Medium Gray */
+    padding: 5px;
+    border-radius: 5%;
 }
 
 /* STYLES */
 .Casual{
-    color: rgb(205, 113, 0);
-    font-weight: 800;
+    color: #FFA657; /* Orange */
+    letter-spacing: 1px;
 }
 
 .Formal{
-    color: rgb(86, 86, 231);
-    font-weight: 800;
+    color: #D1D1D1; /* Light Gray */
+    letter-spacing: 1px;
 }
+
+.Sportwear{
+    color: #FF9C56; /* Light Orange */
+    letter-spacing: 1px;
+}
+
+.Techwear{
+    color: #90C3E6; /* Light Blue */
+    letter-spacing: 1px;
+}
+
+.Old-Money{
+    color: #5489B5; /* Dark Blue */
+    letter-spacing: 1px;
+}
+
+.Minimal{
+    color: #7BA9D8; /* Sky Blue */
+    letter-spacing: 1px;
+}
+
+.Modern-Fashion{
+    color: #FF884D; /* Peach */
+    letter-spacing: 1px;
+}
+
+.Elegant{
+    color: #5BC8B8; /* Teal */
+    letter-spacing: 1px;
+}
+
+.Other{
+    color: #B0B0B0; /* Medium Gray */
+    letter-spacing: 1px;
+}
+
+/* Stats */
+.stats-T-Shirt{
+    background-color: #90C3E6; /* Light Blue */
+}
+
+.stats-Shirt{
+    background-color: #6EC9D8; /* Cyan */
+}
+
+.stats-Jackets{
+    background-color: #FFA657; /* Orange */
+}
+
+.stats-Coats{
+    background-color: #D1D1D1; /* Light Gray */
+}
+
+.stats-Jeans{
+    background-color: #5489B5; /* Dark Blue */
+}
+
+.stats-Shorts{
+    background-color: #5BC8B8; /* Teal */
+}
+
+.stats-Sportswear{
+    background-color: #FF9C56; /* Light Orange */
+}
+
+.stats-Footwear{
+    background-color: #E6E6E6; /* Light Gray */
+}
+
+.stats-Fragrance{
+    background-color: #7BA9D8; /* Sky Blue */
+}
+
+.stats-Underclothes{
+    background-color: #4FA4A9; /* Sea Green */
+}
+
+.stats-Accessories{
+    background-color: #FF884D; /* Peach */
+}
+
+.stats-Others{
+    background-color: #B0B0B0; /* Medium Gray */
+}
+

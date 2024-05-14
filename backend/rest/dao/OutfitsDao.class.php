@@ -11,12 +11,13 @@ class OutfitsDao extends BaseDao{
         return $this -> insert("outfits", $outfit);
     }
 
-    public function get_outfits(){
+    public function get_outfits($userId){
         $query = "SELECT o.*, w.name AS weatherName, oc.name AS categoryName
                 FROM outfits o
                 JOIN weather w ON o.weatherID = w.id
-                JOIN outfitsCategories oc ON o.outfit_categoryID = oc.id";
-        return $this -> query($query);
+                JOIN outfitsCategories oc ON o.outfit_categoryID = oc.id
+                WHERE o.userID = :userID";
+        return $this -> query($query, ["userID" => $userId]);
     }
 
     public function get_outfit_by_id($outfit_id){

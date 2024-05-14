@@ -1,6 +1,7 @@
 var ItemsService = {
     get_items: function(){
-        $.get(Constants.API_BASE_URL + "backend/get_clothes.php", (clothes) => {
+        var userId = Utils.get_item_from_localstorage("user").id;
+        RestClient.get("backend/items/" + userId, (clothes) => {
             console.log(clothes);
             let itemCards = "";
             clothes.forEach((item) => {
@@ -24,7 +25,8 @@ var ItemsService = {
 
     get_item_description: function(itemId){
         setTimeout(function () {
-            $.getJSON(Constants.API_BASE_URL + "backend/get_clothes.php", (clothes) => {
+            var userId = Utils.get_item_from_localstorage("user").id;
+            RestClient.get("backend/items/" + userId, (clothes) => {
                 const selectedItem = clothes.find(item => item.id === parseInt(itemId));
                 if (selectedItem) {
                     $("#itemDescriptionBody").html(
@@ -83,23 +85,12 @@ var ItemsService = {
 
     delete_item: function(itemid){
         RestClient.delete(
-            "backend/delete_items.php?id=" + itemid,
+            "backend/items/delete/" + itemid,
             {},
             function(){
-                Toastify({
-                    text: "Item has been deleted",
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: "bottom", // `top` or `bottom`
-                    position: "center", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                      background: "linear-gradient(to right, #A10000, #9400D3)",
-                    },
-                  }).showToast();
-                  window.location.href = "#wardrobe";
-                  ItemsService.get_items();
+                Toasts.sucess_c("Item deleted from your wardrobe!")
+                window.location.href = "#wardrobe";
+                ItemsService.get_items();
             },
             function(){alert("SUM TING WONG")}
         )
@@ -107,7 +98,7 @@ var ItemsService = {
 
     get_item_by_id: function(itemid) {
         RestClient.get(
-            "backend/get_item.php?id=" + itemid,
+            "backend/items/get/" + itemid,
             function(data){
                 console.log(data);
                 $("#editClothesModal").modal("toggle");

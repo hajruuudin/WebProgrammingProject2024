@@ -30,15 +30,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
     <!-- Custom styles: SPAPP - BOOTSTRAP - CUSTOM STYLES -->
+    <link rel="stylesheet" href="assets/css/select2.css">
     <link rel="stylesheet" href="assets/css/spapp.css">
     <link rel="stylesheet" href="assets/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="assets/css/toastify.min.css">
     <link rel="stylesheet" href="assets/css/datatables.min.css">
     <link rel="stylesheet" href="assets/css/mainStyle.css">
     <link rel="stylesheet" href="assets/css/categories.css">
-
-
-
 </head>
 
 <body id="page-top">
@@ -47,48 +45,56 @@
     <div id="wrapper">
 
         <!-- Sidebar - DISPLAYED ON LARGER SCREENS -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion d-md-block d-none" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion d-md-block d-none pt-4" id="accordionSidebar">
 
             <!-- Sidebar - Brand - EMPTY IN ORDER TO LEAVE SPACE -->
             <a class="sidebar-brand d-flex align-items-bottom justify-content-bottom" href="index.html"></a>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#rundown"><span id="navItem">My Rundown</span></a>
-            </li>
+            <div class="card shadow navbar-card">
+                <div class="card-header py-3 d-flex flex-row ">
+                    <h6 class="m-0 font-weight-bold text-dark"></h6>
+                </div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#wardrobe" onclick="ItemsService.get_items()"><span id="navItem">MyWardrobe</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#rundown">
+                        <span id="navItem">My Rundown</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#outfits"><span id="navItem">My Outfits</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#wardrobe" onclick="ItemsService.get_items()"><span id="navItem">MyWardrobe</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#stats"><span id="navItem">My Statistics</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#outfits" onclick="OutfitsService.get_outfits()"><span id="navItem">My Outfits</span></a>
+                </li>
 
-            <br>
+                <li class="nav-item">
+                    <a class="nav-link" href="#stats" onclick="StatsService.get_categories(), StatsService.get_chart(), StatsService.get_frequent_clothes()"><span id="navItem">My Statistics</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#addClothesModal"><span id="navItem">Add
-                        Clothes</span></a>
-            </li>
+                <br>
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#addOutfitModal"><span id="navItem">Add
-                        Outfit</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#addClothesModal"><span id="navItem">Add
+                            Clothes</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#"><span id="navItem">Log Outfit (WIP)</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#addOutfitModal"><span id="navItem">Add
+                            Outfit</span></a>
+                </li>
 
-            <br>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#logOutfitModal"><span id="navItem">Log Outfit</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#about"><span id="navItem">About</span></a>
-            </li>
+                <br>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about"><span id="navItem">About</span></a>
+                </li>
+            </div>
         </ul>
 
         <!-- Offcanvas sidebar - MOBILE & TABLE ONLY -->
@@ -121,7 +127,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#stats" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">My Statistics</span></a>
+                        <a class="nav-link" href="#stats" data-bs-dismiss="offcanvas" onclick="StatsService.get_categories(), StatsService.get_chart(), StatsService.get_frequent_clothes()"><span id="navItem" data-bs-dismiss="offcanvas">My Statistics</span></a>
                     </li>
 
                     <br>
@@ -137,7 +143,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><span id="navItem" data-bs-dismiss="offcanvas">Log Outfit (WIP)</span></a>
+                        <a class="nav-link" data-toggle="modal" data-target="#logOutfitModal" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">Log Outfit</span></a>
                     </li>
 
                     <br>
@@ -175,7 +181,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline navbar-search">
+                    <form class="d-none d-sm-inline-block form-inline navbar-search pl-5">
                         <div class="input-group pt-0 pb-2">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
@@ -208,7 +214,7 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small pt-2">Hajrudin
+                                    <span id="usernameSpan" class="mr-2 d-none d-lg-inline text-gray-600 small pt-2">Hajrudin
                                         Imamovic</span>
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -251,13 +257,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
     <!-- Add Item Of Clothing Modal -->
     <div class="modal fade bd-example-modal-lg" id="addClothesModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
@@ -277,6 +276,7 @@
                                 <!-- Form -->
                                 <div class="col-12">
                                     <form method="post" id="addClothesForm" enctype="multipart/form-data">
+                                        <input type="hidden" id="userIdItem" name="userId">
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="form-group">
@@ -421,6 +421,7 @@
                             <div class="row align-items-center">
                                 <div class="col-12">
                                     <form method="post" id="addOutfitsForm" enctype="multipart/form-data">
+                                        <input type="hidden" id="userIdOutfit" name="userId">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
@@ -527,6 +528,44 @@
     </div>
     <!-- End Add Outfit Modal -->
 
+    <!-- Log outfit modal -->
+    <div class="modal fade bd-example-modal-lg" id="logOutfitModal" tabindex="-1" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="h1 text-gray-800 font-weight-bold pl-3 pt-2">Log Outfit:</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 p-3">
+                            <!-- Actual Card -->
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <form method="post" id="logOutfitForm" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label for="selectClothes">Add Clothes</label>
+                                            <select class="form-control" multiple="multiple" style="width: 100%;" id="selectClothes">
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary my-1">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p><em>All items will have their wear count increased by 1! To increase by more, access each item individually in the wardrobe!</em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End log outfit modal -->
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -541,7 +580,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="pages/login.html">Logout</a>
+                    <a class="btn btn-primary" onclick="Utils.log_out()">Logout</a>
                 </div>
             </div>
         </div>
@@ -568,13 +607,26 @@
     <script src="utils/utils.js"></script>
     <script src="services/items.js"></script>
     <script src="services/outfits.js"></script>
+    <script src="services/stats.js"></script>
     <script src="utils/form-validation.js"></script>
     <script src="utils/rest-client.js"></script>
     <script src="assets/js/toastify.js"></script>
+    <script src="assets/js/select2.js"></script>
+    <script src="utils/toasts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Init the SPAPP:
-        Utils.init_spapp();
+        if(Utils.get_item_from_localstorage("user")){
+            Utils.init_spapp();
+        } else {
+            window.location = "login";
+        }
 
+        //Writing the full name of the user
+        user = window.localStorage.getItem("user")
+        var userSpan = document.getElementById("usernameSpan");
+        userSpan.textContent = JSON.parse(user).fullname
+        
         // Validating the form for clothes submission:
         FormValidation.validateForm(
             $("#addClothesForm"),
@@ -614,35 +666,24 @@
             },
             function ()
             {
+                var userId = Utils.get_item_from_localstorage("user").id;
+                $("#userIdItem").val(userId);
+
                 Utils.blockUi("#addClothesModal");
 
                 var formData = new FormData($("#addClothesForm")[0]);
                 console.log(formData);
             
-                RestClient.post("/backend/add_clothes.php", formData, function(response){
+                RestClient.post("backend/items/add", formData, function(response){
                     Utils.unblockUi("#addClothesModal");
                     console.log(response);
-                    Toastify({
-                        text: "Data sent! Horray",
-                        style: {
-                            backgroundColor: "red"
-                        },
-                        duration: 1000,
-                        gravity: "bottom", // `top` or `bottom`
-                        position: "center",
-                    }).showToast();
+                    Toasts.sucess_b("Item added to your wardrobe!")
                     $("#addClothesForm")[0].reset();
                     if(window.location.href == "#wardrobe"){
                         ItemsService.get_items(); 
                     };
                 }, function(error){
-                    Toastify({
-                        text: "Something went horribly wrong!",
-                        style: {
-                            backgroundColor: "red"
-                        },
-                        duration: 1000
-                    }).showToast();
+                    Toasts.fail_a("Something went wrong!")
                 }
             )
 
@@ -674,34 +715,32 @@
                 }
             },
             function (data){
+                var userId = Utils.get_item_from_localstorage("user").id;
+                $("#userIdOutfit").val(userId);
+
                 Utils.blockUi("#addOutfitModal");
 
                 var formData = new FormData($("#addOutfitsForm")[0]);
                 console.log(formData);
             
-                RestClient.post("/backend/add_outfits.php", formData, function(response){
+                RestClient.post("backend/outfits/add", formData, function(response){
                     Utils.unblockUi("#addOutfitModal");
                     console.log(response);
-                    Toastify({
-                        text: "Data sent! Horray",
-                        style: {
-                            backgroundColor: "red"
-                        },
-                        duration: 1000
-                    }).showToast();
+                    Toasts.sucess_a("Outfit added to wardrobe!")
                     $("#addOutfitsForm")[0].reset();
                     }, function(error){
-                        Toastify({
-                            text: "Something went horribly wrong!",
-                            style: {
-                                backgroundColor: "red"
-                            },
-                            duration: 1000
-                        }).showToast();
+                        Toasts.fail_a("Something went wrong!")
                     }
                 )
             }
         )
+
+        // Getting items from database to the select:
+        Utils.get_select_items($("#selectClothes"));
+        
+        // Logging wear count for items:
+        Utils.log_items('#logOutfitForm');
+        
     </script>
 </body>
 

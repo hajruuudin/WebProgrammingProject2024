@@ -1,6 +1,7 @@
 var OutfitsService = {
     get_outfits: function () {
-        $.get(Constants.API_BASE_URL + "backend/get_outfits.php" , (outfits) => {
+        var userId = Utils.get_item_from_localstorage("user").id;
+        RestClient.get("backend/outfits/" + userId, (outfits) => {
             console.log(outfits)
             let outfitCards = "";
             outfits.forEach((outfit) => {
@@ -25,7 +26,7 @@ var OutfitsService = {
 
     get_outfit_description: function (outfitId) {
         setTimeout(function () {
-            $.getJSON(Constants.API_BASE_URL + "backend/get_outfits.php" , (outfits) => {
+            $.getJSON(Constants.API_BASE_URL + "backend/outfits" , (outfits) => {
                 const selectedOutfit = outfits.find(outfit => outfit.id === parseInt(outfitId));
                 if (selectedOutfit) {
                     console.log("Outfit has been found!");
@@ -84,23 +85,12 @@ var OutfitsService = {
 
     delete_outfit: function(outfitid){
         RestClient.delete(
-            "backend/delete_outfits.php?id=" + outfitid,
+            "backend/outfits/delete/" + outfitid,
             {},
             function(){
-                Toastify({
-                    text: "Outfit has been deleted",
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: "bottom", // `top` or `bottom`
-                    position: "center", // `left`, `center` or `right`
-                    stopOnFocus: true, // Prevents dismissing of toast on hover
-                    style: {
-                      background: "linear-gradient(to right, #A10000, #9400D3)",
-                    },
-                  }).showToast();
-                  window.location.href = "#outfits";
-                  OutfitsService.get_outfits();
+                Toasts.sucess_c("Outfit deleted from your wardrobe!")
+                window.location.href = "#outfits";
+                OutfitsService.get_outfits();
             },
             function(){alert("SUM TING WONG")}
         )
@@ -108,7 +98,7 @@ var OutfitsService = {
 
     get_outfit_by_id: function(outfitid) {
         RestClient.get(
-            "backend/get_outfit.php?id=" + outfitid,
+            "backend/outfits/get/" + outfitid,
             function(data){
                 console.log(data);
                 $("#editOutfitModal").modal("toggle");

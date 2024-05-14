@@ -9,7 +9,9 @@ Title: *MyStylist*
 - Giving a statistical rundown of what the user wears the most, which style the user has...
 - Basically provides a solution to people who canno't choose what to wear and always forget which clothes they have
 
-# 10.03.2024: First Milestone:
+# CHANGELOG TIMELINE:
+
+## 10.03.2024: First Milestone:
 - Created GitHub repo
 - Added the entire frontend components, excluding some
 -   Instructions: index.hmtl is the defaul page (MyRundown), along with the whole logIn, register process
@@ -26,7 +28,7 @@ Title: *MyStylist*
 Notes: Code is a bit rough since the template I was working with did not suit me so I had to change 90% of the code. Some files were also left (javascript) since I didn't  want to remove a vital function of the template by accident.
 
 
-# 02. 04. 2024: Second Milestone
+## 02. 04. 2024: Second Milestone
 - Spapp implemented on the webpage, with base at Index.html
 - Log in and Register are not part of spapp as they are different pages completely
 - The rest is fully implemented in spapp
@@ -41,8 +43,8 @@ Notes: Code is a bit rough since the template I was working with did not suit me
 
 Notes: I had bugs with spapp which forced me to use timeouts when generating the descriptions of the items or outfits, but other than that the rest should be fine
 
-# 23. 04. 2024: Third Milestone
-- Whole Frontedn project is now changes
+## 23. 04. 2024: Third Milestone
+- Whole Frontend project is now changed
 - Assets - Keeps all the css, js and vendor template necessery files
 - Services - The javascript methods made specifically to manipulate the entities in the webpage
 - Utils - Repeating functions such as spapp, block UI
@@ -52,3 +54,12 @@ Notes: I had bugs with spapp which forced me to use timeouts when generating the
 - The database consists of 6 tables and 3 entities!
 
 Notes: For the database i had to create some dummy tables which honestly serve no purpose but they fit well in the system. The user entity was not tackled in this milestone since I left it for the later milestones when we will be making the actual LogIn. Also, same goes for Stats, Log Outfit and Rundown, since those will implement specially functionalities. For this mileston, I just did what was necessary to show the connection to the database!!!
+
+## 13. 05. 2024: Fourth Milestone
+- OPENApi Swagger implemented at route public/v1/docs/#/
+- Most routes have their documentation excluding maybe a few very similar routes
+- Implemented Flight::php for all routing to the backend from the frontend using Route - Service - Dao pattern
+- Implemented JWT authentication for users to log in and register. Now, every user has their own data: User, Clothes, Styles
+- Updated whole project structure: Improved visual design, Implemented functions excluding rundown screen, Cleaned up Code...
+
+Notes: The only page that is left to do is the rundown page. Other than that, the project is pretty much almost complete.
