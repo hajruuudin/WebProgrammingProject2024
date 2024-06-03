@@ -45,7 +45,7 @@
     <div id="wrapper">
 
         <!-- Sidebar - DISPLAYED ON LARGER SCREENS -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion d-md-block d-none pt-4" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark  d-md-block d-none pt-4" id="accordionSidebar">
 
             <!-- Sidebar - Brand - EMPTY IN ORDER TO LEAVE SPACE -->
             <a class="sidebar-brand d-flex align-items-bottom justify-content-bottom" href="index.html"></a>
@@ -73,7 +73,9 @@
                     <a class="nav-link" href="#stats" onclick="StatsService.get_categories(), StatsService.get_chart(), StatsService.get_frequent_clothes()"><span id="navItem">My Statistics</span></a>
                 </li>
 
-                <br>
+                <li class="nav-item">
+                    <span id="navItem">──────────────</span>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#addClothesModal"><span id="navItem">Add
@@ -89,7 +91,9 @@
                     <a class="nav-link" data-toggle="modal" data-target="#logOutfitModal"><span id="navItem">Log Outfit</span></a>
                 </li>
 
-                <br>
+                <li class="nav-item">
+                    <span id="navItem">──────────────</span>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="#about"><span id="navItem">About</span></a>
@@ -112,8 +116,13 @@
                 <ul class="navbar-nav sidebar sidebar-dark" id="accordionSidebar">
 
                     <li class="nav-item">
+                        <span id="navItem">──────────────</span>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#rundown"><span id="navItem" data-bs-dismiss="offcanvas">My Rundown</span></a>
                     </li>
+
 
                     <li class="nav-item">
                         <a class="nav-link" href="#wardrobe">
@@ -130,7 +139,9 @@
                         <a class="nav-link" href="#stats" data-bs-dismiss="offcanvas" onclick="StatsService.get_categories(), StatsService.get_chart(), StatsService.get_frequent_clothes()"><span id="navItem" data-bs-dismiss="offcanvas">My Statistics</span></a>
                     </li>
 
-                    <br>
+                    <li class="nav-item">
+                        <span id="navItem">──────────────</span>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#addClothesModal" data-bs-dismiss="offcanvas"><span id="navItem">Add
@@ -146,10 +157,25 @@
                         <a class="nav-link" data-toggle="modal" data-target="#logOutfitModal" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">Log Outfit</span></a>
                     </li>
 
-                    <br>
+                    <li class="nav-item">
+                        <span id="navItem">──────────────</span>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#about" data-bs-dismiss="offcanvas"><span id="navItem" data-bs-dismiss="offcanvas">About</span></a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="userDropdown" role="button" data-toggle="modal" data-bs-dismiss="offcanvas" data-target="#logoutModal">
+                            <span id="navItem">
+                                Log Out
+                            </span>
+                            <!-- <img class="img-profile rounded-circle d-inline" src="assets/img/undraw_profile.svg">
+                            <span id="navItem" class="mr-2 d-inline text-gray-600 pl-3 pt-2">
+                                Hajrudin Imamovic
+                            </span> -->
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -165,7 +191,7 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light topbar static-top fixed-top navbarColor pt-4 pb-3" id="topbar">
                     <a class="navbar-brand" href="#rundown">
-                        <div class="navbar-brand mb-0 h1"><span id="headerNavbar"><i class="fas fa-hat-cowboy rotate-n-15"></i>MyStylist</span>
+                        <div class="navbar-brand m-md-4 h1"><span id="headerNavbar"><i class="fas fa-hat-cowboy rotate-n-15"></i>MyStylist</span>
                         </div>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -181,32 +207,14 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline navbar-search pl-5">
-                        <div class="input-group pt-0 pb-2">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="top-div d-xl-block d-none shadow">──────────────────────────────────────────────────</div>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                        </li>
-
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle d-md-inline d-none" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="assets/img/undraw_profile.svg">
                             </a>

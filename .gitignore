@@ -1,2 +1,4 @@
 backend/vendor
 backend/rest/config.php
+backend/logs.txt
+assets/img

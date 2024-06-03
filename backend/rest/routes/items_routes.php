@@ -2,9 +2,6 @@
 
 require_once __DIR__ . "/../services/ItemsService.class.php";
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-
 Flight::set("items_service", new ItemsService());
 
 Flight::group("/items", function() {
@@ -12,28 +9,20 @@ Flight::group("/items", function() {
     /* Getting all the items */
     /**
      * @OA\Get(
-     *      path="/items",
+     *      path="/items/{userId}",
      *      tags={"Items"},
      *      summary="Get all items",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Get all items from the database"
      *      ),
+     *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="userId", example="0", description="ID Of the user")
      * )
      */
     Flight::route("GET /@userid", function($userid){
-        try{
-            $token = Flight::request() -> getHeader("Authentication");
-
-            if(!$token)
-                Flight::halt(401, "Missing authentication header");
-            
-            JWT::decode($token, new Key(JWT_SECRET, "HS256"));
-    
-        } catch(\Exception $e){
-            Flight::halt(401, $e -> getMessage());
-        }
-
         $items = Flight::get("items_service") -> get_items($userid);
     
         header('Content-Type: application/json');
@@ -46,6 +35,9 @@ Flight::group("/items", function() {
      *      path="/items/add",
      *      tags={"Items"},
      *      summary="Add an item to the database",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\RequestBody(
      *          required=true,
      *          description="Item data",
@@ -105,7 +97,7 @@ Flight::group("/items", function() {
                     }
                 }
             
-                $resizedImage = imagescale($image, 800, -1);
+                $resizedImage = imagescale($image, 600, -1);
                 if (!$resizedImage) {
                     throw new Exception("Failed to resize image.");
                 }
@@ -139,6 +131,9 @@ Flight::group("/items", function() {
      *      path="/items/delete/{itemid}",
      *      tags={"Items"},
      *      summary="Delete item",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Delete an item from the database, or throw an error if it doesn't exists"
@@ -159,6 +154,9 @@ Flight::group("/items", function() {
      *      path="/items/get/{itemid}",
      *      tags={"Items"},
      *      summary="Get item",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Retrieve a specific item from the database, if it exists"
@@ -175,8 +173,6 @@ Flight::group("/items", function() {
     });
 
     //Editig an item:
-    //POSSIBLY IMPLEMENT LATER, LEFT EMPTY FOR NOT TO-DO//
-    // TO-DO
     Flight::route("POST /edit", function(){
         $payload = Flight::request() -> data -> getData("id");
 
@@ -185,9 +181,9 @@ Flight::group("/items", function() {
         Flight::json(["message" => "Item edited successfully!", 'data' => $item]);
     });
 
-    
+    //Logging an item:
     Flight::route("POST /log", function(){
-        $payload = Flight::request() -> data -> items;
+        $payload = Flight::request() -> data -> getData("items");
 
         foreach($payload as $itemID){
             Flight::get("items_service") -> log_item($itemID);

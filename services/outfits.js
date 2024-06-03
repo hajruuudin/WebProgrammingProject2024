@@ -2,31 +2,84 @@ var OutfitsService = {
     get_outfits: function () {
         var userId = Utils.get_item_from_localstorage("user").id;
         RestClient.get("backend/outfits/" + userId, (outfits) => {
-            console.log(outfits)
             let outfitCards = "";
-            outfits.forEach((outfit) => {
-                outfitCards +=
-                    `
-                        <div class="col-lg-4 col-6 mb-2">
-                            <a href="#outfitDescription" id="${outfit.id}" class="styleCardSelect" onclick="OutfitsService.get_outfit_description(${outfit.id})">
-                                <div class="styleData d-flex flex-column align-items-center">
-                                    <img src="${outfit.img_dir}" alt="image" class="styleImage">
-                                    <h3 class="styleName">${outfit.name}</h3>
-                                    <p class="styleCategory ${outfit.categoryName}">${outfit.categoryName}</p>
-                                    <p class="styleSeason">${outfit.weatherName}</p>
-                                    <p class="styleRating">${outfit.rating}</p>
-                                </div>
-                            </a>
-                        </div>
-                    `
-            });
+            if(outfits.length == 0){
+                outfitCards += 
+                `
+                <h2 class="smallHeading">"No outfits to display :("</h2>
+                <h4 class="smallSubheading"><em>Make sure to add some before looking at your wardrobe</em></h4>
+
+                `
+            } else {
+                outfits.forEach((outfit) => {
+                    outfitCards +=
+                        `
+                            <div class="col-lg-4 col-6 mb-2">
+                                <a href="#outfitDescription" id="${outfit.id}" class="styleCardSelect" onclick="OutfitsService.get_outfit_description(${outfit.id})">
+                                    <div class="styleData d-flex flex-column align-items-center">
+                                        <img src="${outfit.img_dir}" alt="image" class="styleImage">
+                                        <h3 class="styleName">${outfit.name}</h3>
+                                        <p class="styleCategory ${outfit.categoryName}">${outfit.categoryName}</p>
+                                        <p class="styleSeason">${outfit.weatherName}</p>
+                                        <p class="styleRating">${outfit.rating}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        `
+                });
+            }
             document.getElementById("outfitsContainer").innerHTML = outfitCards;
         });
     },
 
+    get_outfits_rundown: function() {
+        var userId = Utils.get_item_from_localstorage("user").id;
+        RestClient.get(
+            "backend/outfits/" + userId, (outfits) => {
+                let outfitCards = "";
+                let counter = 0;
+                if(outfits.length == 0){
+                    outfitCards += 
+                        `
+                        <h2 class="smallHeading">"No clothes to display"</h2>
+                        <h4 class="smallSubheading"><em>Make sure to add some before viewing your wardrobe</em></h4>
+
+                        `
+                } else {
+                    for(style of outfits){
+                        if(counter >= 3){
+                            break;
+                        } else{
+                            outfitCards +=
+                            `
+                            <div class="col-lg-4 col-12 mb-2">
+                                <div class="styleData d-flex flex-column align-items-center">
+                                    <img src="${style.img_dir}" alt="jeans" class="styleImageSmall">
+                                    <h5 class="styleName">${style.name}</h5>
+                                    <p class="styleCategory style-casual">${style.categoryName}</p>
+                                    <p class="styleSeason">${style.weatherName}</p>
+                                    <p class="styleRating">${style.rating}</p>
+                                </div>
+                            </div>
+                            `
+    
+                            counter++;
+                        }
+                    
+                    }
+                }
+                
+
+                document.getElementById("rundown-styles").innerHTML = outfitCards;
+            }
+        )
+    },
+
+
     get_outfit_description: function (outfitId) {
         setTimeout(function () {
-            $.getJSON(Constants.API_BASE_URL + "backend/outfits" , (outfits) => {
+            var userId = Utils.get_item_from_localstorage("user").id;
+            RestClient.get("backend/outfits/" + userId, (outfits) => {
                 const selectedOutfit = outfits.find(outfit => outfit.id === parseInt(outfitId));
                 if (selectedOutfit) {
                     console.log("Outfit has been found!");

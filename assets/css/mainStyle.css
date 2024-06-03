@@ -175,6 +175,15 @@ a{
     transition: 0.2s ease-in-out;
 }
 
+.itemImageSmall{
+    width: 80px;
+    aspect-ratio: 3/4;
+    border-radius: 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
+    transition: 0.2s ease-in-out;
+    margin: 19px 5px;
+}
+
 @media (max-width: 800px) {
     .itemImage{
         width: 150px;
@@ -232,6 +241,14 @@ a{
 .styleImage{
     width: 150px;
     height: 220px;
+    border-radius: 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
+    transition: 0.2s ease-in-out;
+}
+
+.styleImageSmall{
+    width: 100px;
+    height: 146px;
     border-radius: 5%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 50%);
     transition: 0.2s ease-in-out;
@@ -319,4 +336,28 @@ a{
     position: sticky;
     top: 110px;
     
+}
+
+/* OTHER */
+.smallHeading {
+    color: #555555;
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+}
+
+.smallSubheading{
+    color: #777777;
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.top-div{
+    background-color: rgb(255, 255, 255);
+    display: block;
+    margin-left: 15px;
+    height: 40px;
+    border-radius: 5vh;
+    color: rgb(255, 255, 255);
 }

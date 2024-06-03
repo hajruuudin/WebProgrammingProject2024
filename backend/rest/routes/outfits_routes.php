@@ -11,6 +11,9 @@ Flight::group("/outfits", function(){
      *      path="/outfits/{userId}",
      *      tags={"Outfits"},
      *      summary="Get all outfits",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Get all outfits from the database"
@@ -29,6 +32,9 @@ Flight::group("/outfits", function(){
      *      path="/outfits/add",
      *      tags={"Outfits"},
      *      summary="Add an outfit to the database",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\RequestBody(
      *          required=true,
      *          description="Outfit data",
@@ -119,6 +125,9 @@ Flight::group("/outfits", function(){
      *      path="/outfits/delete/{outfitid}",
      *      tags={"Outfits"},
      *      summary="Delete outfit",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Delete an outfit from the database, or throw an error if it doesn't exists"
@@ -138,6 +147,9 @@ Flight::group("/outfits", function(){
      *      path="/outfits/get/{outfitid}",
      *      tags={"Outfits"},
      *      summary="Get outfit",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Retrieve a specific outfit from the database, if it exists"

@@ -63,3 +63,12 @@ Notes: For the database i had to create some dummy tables which honestly serve n
 - Updated whole project structure: Improved visual design, Implemented functions excluding rundown screen, Cleaned up Code...
 
 Notes: The only page that is left to do is the rundown page. Other than that, the project is pretty much almost complete.
+
+## 04. 06. 2025: Fifth Milestone + Extra Milestone
+- Deplyment (Kidn Off, doesn't properly work due to CORS)
+- Middleware implemented to intercept all routes and provide authentication
+- Full duplex connection from frontend to backend and vice verca (excluding one annoying bug)
+
+## Extra Points Milestion
+- HTTP2 Protocal, but it is implemented automatically by DigitalOcean. I couldn't get the SSL certificate to work
+- Basic WebSockets Implementation for the get method in the items.

@@ -1,3 +1,9 @@
 var Constants = {
-    API_BASE_URL: 'http://localhost:80/webProgrammingProject2024/',
+    get_base_api_url: function(){
+        if(location.hostname == "localhost"){
+            return'http://localhost/webProgrammingProject2024/'
+        } else {
+            return 'https://clownfish-app-cikj6.ondigitalocean.app/'
+        }
+    }
 }
