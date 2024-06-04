@@ -618,6 +618,7 @@
     <script src="services/stats.js"></script>
     <script src="utils/form-validation.js"></script>
     <script src="utils/rest-client.js"></script>
+    <script src="utils/web-sockets-client.js"></script>
     <script src="assets/js/toastify.js"></script>
     <script src="assets/js/select2.js"></script>
     <script src="utils/toasts.js"></script>
@@ -629,6 +630,8 @@
         } else {
             window.location = "login";
         }
+
+        SocketItemsService.init()
 
         //Writing the full name of the user
         user = window.localStorage.getItem("user")
