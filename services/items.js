@@ -2,25 +2,63 @@ var ItemsService = {
     get_items: function(){
         var userId = Utils.get_item_from_localstorage("user").id;
         RestClient.get("backend/items/" + userId, (clothes) => {
-            console.log(clothes);
             let itemCards = "";
-            clothes.forEach((item) => {
-                itemCards +=
-                    `
-                        <div class="col-lg-3 col-m-4 col-6 mb-2">
-                            <a href="#itemDescription" id="${item.id}" class="itemCardSelect" onclick="ItemsService.get_item_description(${item.id})">
-                                <div class="itemData d-flex flex-column align-items-center">
-                                    <img src="${item.img_dir}" alt="item" class="itemImage">
-                                    <h4 class="itemName">${item.name}</h4>
-                                    <p class="itemCategory ${item.categoryName}">${item.categoryName}</p>
-                                    <p class="itemWearCount"><span>Count:</span>${item.wear_count}</p>
-                                </div>
-                            </a>
-                        </div>
-                    `
-            });
+            if(clothes.length == 0){
+                itemCards += 
+                `   <h2 class="smallHeading">"No clothes to display"</h2>
+                    <h4 class="smallSubheading"><em>Make sure to add some before viewing your wardrobe</em></h4>
+                `
+            } else 
+            {
+                clothes.forEach((item) => {
+                    itemCards +=
+                        `
+                            <div class="col-lg-3 col-m-4 col-6 mb-2">
+                                <a href="#itemDescription" id="${item.id}" class="itemCardSelect" onclick="ItemsService.get_item_description(${item.id})">
+                                    <div class="itemData d-flex flex-column align-items-center">
+                                        <img src="${item.img_dir}" alt="item" class="itemImage">
+                                        <h4 class="itemName">${item.name}</h4>
+                                        <p class="itemCategory ${item.categoryName}">${item.categoryName}</p>
+                                        <p class="itemWearCount"><span>Count:</span>${item.wear_count}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        `
+                });
+            }
+
             document.getElementById("clothesContainer").innerHTML = itemCards;
         });
+    },
+
+    get_items_rundown: function(){
+        var userId = Utils.get_item_from_localstorage("user").id;
+        RestClient.get("backend/items/" + userId, (clothes) => {
+            let clothesCards = "";
+            let counter = 0;
+            if(clothes.length == 0){
+                clothesCards +=
+                `
+                <h2 class="smallHeading">"No clothes to display"</h2>
+                    <h4 class="smallSubheading"><em>Make sure to add some before viewing your wardrobe</em></h4>
+                `
+            } else {
+                for(item of clothes){
+                    if(counter >= 6){
+                        break;
+                    } else {
+                        clothesCards += 
+                        `
+                            <img src="${item.img_dir}" alt="item" class="itemImageSmall">
+                            
+                        `
+                        counter++;
+                    }
+                }
+            }
+
+            document.getElementById("rundown-clothes").innerHTML = clothesCards;
+        })
     },
 
     get_item_description: function(itemId){

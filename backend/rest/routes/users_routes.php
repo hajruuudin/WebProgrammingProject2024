@@ -10,6 +10,9 @@ Flight::group("/users", function(){
      *      path="/users/get/{userid}",
      *      tags={"Users"},
      *      summary="Get a user",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Retrieve a specific user from the database, if he/she exists"
@@ -30,6 +33,9 @@ Flight::group("/users", function(){
      *      path="/users/add",
      *      tags={"Users"},
      *      summary="Adding a user to the databse (Registering)",
+     *      security = {
+     *          {"ApiKey" : {}}
+     *      },
      *      @OA\RequestBody(
      *          description="Register data",
      *          @OA\JsonContent(
